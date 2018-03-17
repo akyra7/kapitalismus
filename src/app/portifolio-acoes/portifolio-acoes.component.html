@@ -1,0 +1,125 @@
+<br>
+
+<div class="container border">
+  <nav class="navbar navbar-light bg-light">
+    <div class="form-inline">
+      <input #pesquisa class="form-control mr-sm-2" type="search" 
+        placeholder="Símbolo" aria-label="Search" 
+        [(value)] = "valorPesquisa"
+        (keyup) = "capturaCampo(pesquisa.value, $event)"
+        id = "campo-simbolo"
+        >
+      <button id="botao-adicionar" class="btn btn-outline-success my-2 my-sm-0" 
+        (click)= "adicionaAcao()"
+        >Adicionar</button>
+      <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo" style="margin-left:20px">
+      EDITAR</button>
+    </div>
+    <a class = 'btn btn-warning' href="#" (click) = "recuperarCarteira()"> 
+        <i class="fa fa-download"></i> Recuperar 
+    </a>
+    <a class = 'btn btn-success' href="#" (click) = "salvarCarteira()"> 
+      <i class="fa fa-floppy-o"></i> Salvar 
+    </a>
+  </nav>
+  
+<!--   <ul class="list-group w-25" style="position: absolute" >
+    
+      <li *ngFor="let item of listaAcoes" class="list-group-item list-group-item-primary">{{item.id}} - {{item.descricao}}</li>
+  </ul> -->
+
+  <div class="list-group " style="position: absolute" >
+      <a *ngFor="let item of listaAcoes" 
+      href="#"
+      style="height: 35px; padding: 5px 15px;"
+      class="list-group-item list-group-item-primary list-group-item-action"
+      (click) = "selecionaAcao(item.id, item.descricao)"
+      >{{item.id}} - {{item.descricao}}
+    </a>
+    </div>
+    <hr>
+
+  <table class="table  table-hover table-sm">
+    <thead>
+      <tr>
+        <th>Ativo</th>
+        <th>Empresa</th>
+        <th>Quantidade</th>
+        <th>Preço médio</th>
+        <th>Grafico</th>
+
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of carteira.listaAtivos">
+        <td>{{item.cod}} </td>
+        <td>{{item.desc}}</td>
+        <td>{{item.qtd}}</td>
+        
+        <!-- <td>{{item.qtd | currency:'BRL'}} </td> -->
+        <td>Cell 4</td>
+        <td>
+          <div>
+            <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo" > Editar </button>
+            <button type="button" class="btn btn-alert btn-sm" (click)="limparListaAcoesSelecionadas(item.cod)" > Limpar </button>
+            </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="modal" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Alterar portifólio</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <!-- <form> -->
+          <div class="container border">
+            <div class="row">
+              <div class="col-md-3">
+
+                <div class="form-group">
+                  <label for="recipient-name" class="col-form-label">Qtd:</label>
+                  <input type="text" class="form-control" id="recipient-name">
+                </div>
+              </div>
+              <div class="col">
+                <div class="form-group">
+                  <label for="recipient-name" class="col-form-label">Preço:</label>
+                  <input type="text" class="form-control" id="recipient-name">
+                </div>
+              </div>
+              <div class="col">
+                <div class="form-group">
+                  <label for="recipient-name" class="col-form-label">Custo:</label>
+                  <input type="text" class="form-control" id="recipient-name">
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <div class="form-group">
+                  <label for="message-text" class="col-form-label">Nota:</label>
+                  <textarea class="form-control" id="message-text"></textarea>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+
+        <!-- </form> -->
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-primary">Salvar</button>
+      </div>
+    </div>
+  </div>
+</div>

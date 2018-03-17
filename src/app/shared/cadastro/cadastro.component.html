@@ -1,0 +1,18 @@
+<div class="container">
+    <div class="login-container">
+      <h3>Cadastro</h3>
+      <hr>
+  
+      <div class="avatar"></div>
+      <div class="form-box">
+        <form [formGroup]="formulario" (ngSubmit)="cadastrarUsuario()">
+          <input id="nome-completo" class="form-control" formControlName="nomeCompleto" type="text" placeholder="Nome completo">
+          <input class="form-control" formControlName="email" type="text" placeholder="email">
+          <input class="form-control" formControlName="senha" type="password" placeholder="senha">
+          <button type="submit" class="btn btn-info btn-block login">Cadastrar</button>
+        </form>
+        <hr>
+        <a href="#" ><h6>Fazer login</h6></a>
+      </div>
+    </div>
+  </div>
