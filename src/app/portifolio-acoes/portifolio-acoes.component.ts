@@ -5,6 +5,8 @@ import { catchError, retry } from 'rxjs/operators';
 import 'rxjs/add/operator/retry';
 import { Carteira, Ativo } from '../shared/carteira.model';
 import { FbdatabaseService } from '../shared/fbdatabase.service';
+import { FormGroup, FormControl } from '@angular/forms';
+import { AngularFireAuth } from 'angularfire2/auth';
 
 @Component({
   selector: 'app-portifolio-acoes',
@@ -14,7 +16,11 @@ import { FbdatabaseService } from '../shared/fbdatabase.service';
 })
 export class PortifolioAcoesComponent implements OnInit {
 
-  constructor(private consultaAcao: ConsultaAcaoService, private firebase: FbdatabaseService) { }
+  constructor(
+    private consultaAcao: ConsultaAcaoService,
+    private firebase: FbdatabaseService,
+    private fauth: AngularFireAuth
+  ) { }
 
   listaAcoes = [];
   listaAcoesAux = [];
@@ -22,14 +28,32 @@ export class PortifolioAcoesComponent implements OnInit {
   valorPesquisa = '';
   acaoSelecionada = new AcaoAdicionada('', '', '');
   carteira: Carteira;
+  nomeCarteira = '';
   listaAtivos: Ativo[];
+  nomeEditavel = false;
+
+  public formulario: FormGroup = new FormGroup({
+    'nomeCarteira': new FormControl(null),
+  });
 
   ngOnInit() {
     this.listaAcoesAdicionadas = new Array<AcaoAdicionada>();
     this.listaAtivos = [];
     this.carteira = new Carteira();
     this.carteira.listaAtivos = new Array<Ativo>();
-    this.recuperarCarteira();
+
+    console.log('user ID -__----__-' + this.firebase.getUserId());
+    // console.log('user ID -__----__-' + this.fauth.);
+
+    this.formulario.disable();
+
+    if (this.firebase.getUserId() !== undefined) {
+      this.recuperarCarteira();
+      // this.formulario.value.nomeCarteira = this.carteira.nome;
+      this.formulario.setValue({ nomeCarteira: this.carteira.nome });
+      console.log('this.carteira.nome ', this.carteira.nome);
+      console.log('this.formulario.value.nomeCarteira ', this.formulario.value.nomeCarteira);
+    }
   }
 
   capturaCampo(conteudo: string, event: KeyboardEvent): void {
@@ -122,9 +146,16 @@ export class PortifolioAcoesComponent implements OnInit {
   recuperarCarteira() {
     this.firebase.getCarteira().subscribe(
       (dado: Carteira) => {
-        console.log('DADO recuperado: ----->    ' + JSON.stringify(dado));
-        this.carteira.nome = dado.nome;
-        this.carteira.listaAtivos = dado.listaAtivos === undefined ? new Array<Ativo>() : dado.listaAtivos;
+        console.log('DADO recuperado: ----->    ', dado);
+        if (dado === null) {
+          this.carteira = new Carteira();
+        } else {
+
+          this.carteira.nome = dado.nome;
+          console.log('this.carteira.nome -- ', this.carteira.nome);
+          console.log('dado.nome ', dado.nome);
+          this.carteira.listaAtivos = dado.listaAtivos === undefined ? new Array<Ativo>() : dado.listaAtivos;
+        }
       },
       erro => {
         console.log('erro: ----->    ' + erro);
@@ -170,20 +201,33 @@ export class PortifolioAcoesComponent implements OnInit {
   }
 
   recuperaCotacaoAPI(cod: string) {
-  this.consultaAcao.consultaCotacaoAcao(cod)
-  .subscribe(
-    resposta => {
-      console.log(resposta);
-      const dataUltCotacao = resposta['Meta Data']['3. Last Refreshed'];
-      const ultimaCotacao = resposta['Time Series (5min)'][dataUltCotacao]['4. close'];
-      // novaAcao.cotacao = ultimaCotacao;
-      console.log('Data ultima cotacao ' + dataUltCotacao);
-      console.log('Ultima cotacao ------->' + ultimaCotacao);
-    },
-    erro => catchError(erro),
-    () => console.log('Lista de acoes adicionadas: ' + this.listaAcoesAdicionadas)
-  );
-}
+    this.consultaAcao.consultaCotacaoAcao(cod)
+      .subscribe(
+        resposta => {
+          console.log(resposta);
+          const dataUltCotacao = resposta['Meta Data']['3. Last Refreshed'];
+          const ultimaCotacao = resposta['Time Series (5min)'][dataUltCotacao]['4. close'];
+          // novaAcao.cotacao = ultimaCotacao;
+          console.log('Data ultima cotacao ' + dataUltCotacao);
+          console.log('Ultima cotacao ------->' + ultimaCotacao);
+        },
+        erro => catchError(erro),
+        () => console.log('Lista de acoes adicionadas: ' + this.listaAcoesAdicionadas)
+      );
+  }
+
+  public editaNome(): void {
+    this.formulario.disabled ? this.formulario.enable() : this.formulario.disable();
+    if (!this.nomeEditavel) {
+      // document.getElementById('nomeCarteira').blur();
+      document.getElementById('nomeCarteira').click();
+      console.log('clicado');
+    }
+  }
+
+  public salvaNome(): void {
+    this.firebase.atualizaNomeCarteira(this.formulario.value.nomeCarteira);
+  }
 
 }
 

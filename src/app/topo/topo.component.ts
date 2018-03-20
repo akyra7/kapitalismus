@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../shared/auth.service';
 
 @Component({
   selector: 'app-topo',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TopoComponent implements OnInit {
 
-  constructor() { }
+  constructor( private authService: AuthService ) {}
 
   ngOnInit() {
+  }
+
+  public estaLogado(): boolean {
+    return this.authService.estaLogado();
+  }
+
+  public fazerLogout(): void {
+    return this.authService.fazerLogout();
   }
 
 }

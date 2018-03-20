@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
-import { Usuario } from '../usuario.model';
-import { AuthService } from '../auth.service';
+import { Usuario } from '../../usuario.model';
+import { AuthService } from '../../auth.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-cadastro',
@@ -16,9 +17,9 @@ export class CadastroComponent implements OnInit {
     'senha': new FormControl(null)
   });
 
-  constructor( private authService: AuthService ) { }
+  @Output() public renderizaCadastro: EventEmitter<boolean> = new EventEmitter<boolean>();
 
-
+    constructor(private authService: AuthService, private toastr: ToastrService) { }
 
   ngOnInit() {
   }
@@ -32,7 +33,14 @@ export class CadastroComponent implements OnInit {
       this.formulario.value.senha
     );
     this.authService.cadastrarUsuario(usuario);
+    this.toastr.toastrConfig.positionClass = 'toast-top-center';
+    this.toastr.toastrConfig.closeButton = true;
+    this.toastr.success('', 'Cadastro realizado com sucesso');
+    this.renderCadastro();
     // console.log(usuario);
   }
 
+  public renderCadastro(): void {
+    this.renderizaCadastro.emit(false);
+  }
 }

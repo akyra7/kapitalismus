@@ -12,10 +12,14 @@ import { TopoComponent } from './topo/topo.component';
 import { PortifolioAcoesComponent } from './portifolio-acoes/portifolio-acoes.component';
 import { ToastrModule, Toast } from 'ngx-toastr';
 import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform-browser/animations';
-import { LoginComponent } from './shared/login/login.component';
+import { LoginComponent } from './shared/autenticacao/login/login.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { CadastroComponent } from './shared/cadastro/cadastro.component';
+import { CadastroComponent } from './shared/autenticacao/cadastro/cadastro.component';
 import { AuthService } from './shared/auth.service';
+import { RouterModule } from '@angular/router';
+import { ROUTES } from './app.routes';
+import { AutenticacaoComponent } from './shared/autenticacao/autenticacao.component';
+import { AuthGuard } from './shared/auth-guard.service';
 
 
 
@@ -25,7 +29,8 @@ import { AuthService } from './shared/auth.service';
     TopoComponent,
     PortifolioAcoesComponent,
     LoginComponent,
-    CadastroComponent
+    CadastroComponent,
+    AutenticacaoComponent
   ],
   imports: [
     BrowserModule,
@@ -35,9 +40,10 @@ import { AuthService } from './shared/auth.service';
     ToastrModule.forRoot(),
     BrowserAnimationsModule,
     NoopAnimationsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    RouterModule.forRoot(ROUTES)
   ],
-  providers: [ AuthService, AngularFireAuth],
+  providers: [ AuthService, AngularFireAuth, AuthGuard ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

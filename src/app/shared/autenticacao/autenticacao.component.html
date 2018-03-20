@@ -1,0 +1,14 @@
+
+<div *ngIf="renderizaCadastro">
+  <app-cadastro (renderizaCadastro)="rCadastro($event)"></app-cadastro>
+</div>
+<div *ngIf="!renderizaCadastro">
+  <app-login (renderizaCadastro)="rCadastro($event)"></app-login>
+</div>
+<!-- 
+
+<div [ngIf] = "renderizaCadastro" >
+    <app-login (renderizaCadastro)="renderizaCadastro"></app-login>
+  </div>
+
+ -->
