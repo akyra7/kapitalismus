@@ -77,9 +77,9 @@ export class FbdatabaseService {
       );
   }
 
-  public atualizaCarteira(wallet: Carteira) {
+  public atualizaCarteira(wallet: Carteira): Promise<any> {
     if (this.getUserId() !== undefined) {
-      this.db.database.ref('/users/' + this.getUserId() + '/carteira').update({
+      return this.db.database.ref('/users/' + this.getUserId() + '/carteira').update({
         nome: wallet.nome,
         listaAtivos: wallet.listaAtivos
       });

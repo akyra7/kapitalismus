@@ -2,6 +2,8 @@ import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { AuthService } from '../../auth.service';
 import { AngularFireAuth } from 'angularfire2/auth';
+import { ROUTES } from '../../../app.routes';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -17,11 +19,16 @@ export class LoginComponent implements OnInit {
 
   @Output() public renderizaCadastro: EventEmitter<boolean> = new EventEmitter<boolean>();
 
-  constructor( private authService: AuthService, private fauth: AngularFireAuth ) { }
+  constructor(
+    private authService: AuthService,
+    private fauth: AngularFireAuth,
+    private router: Router) { }
+
 
 
 
   ngOnInit() {
+    this.testeUsuarioLogado();
   }
 
   public logarUsuario(): void {
@@ -37,9 +44,14 @@ export class LoginComponent implements OnInit {
 
   public testeUsuarioLogado(): void {
     this.fauth.authState.subscribe(
-      dado => {console.log(dado); }
+      dado => {
+        console.log(dado);
+        if (dado !== null || dado !== undefined) {
+          this.router.navigate(['/home']);
+        }
+      }
     );
-    alert(this.fauth.auth.currentUser.uid);
+    // alert(this.fauth.auth.currentUser.uid);
   }
 
 }

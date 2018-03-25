@@ -1,6 +1,6 @@
 <br>
 
-<div class="container border">
+<div class="container">
   <nav class="navbar navbar-light bg-light">
     <div class="form-inline">
 
@@ -29,12 +29,26 @@
     </a>
   </div>
   <hr>
-  <form [formGroup]="formulario">
-    <input id="nomeCarteira"  type="text" class="form-control" formControlName="nomeCarteira" style="border:0;background-color: #FFFF;font-size:25px;">
+  <form [formGroup]="addAtivoFormulario">
+    <div class="input-group mb-3">
+
+      <input id="nomeCarteira" type="text" class="form-control" formControlName="nomeCarteira" style="border:0;background-color: #FFFF;font-size:25px;">
+      <div class="input-group-append">
+          <div class="btn" (click)="editaNome()">
+              <div *ngIf="addAtivoFormulario.disabled">
+                <i class="fa fa-2x fa-pencil"></i>
+              </div>
+              <div *ngIf="addAtivoFormulario.enabled">
+                <i class="fa fa-2x fa-floppy-o" (click)="salvaNome()"></i>
+              </div>
+            </div>
+        </div>
+
+    </div>
     <!-- [(disabled)]="nomeEditavel" -->
   </form>
 
-  <div class="btn" (click)="editaNome()">
+  <!-- <div class="btn" (click)="editaNome()">
 
     <div *ngIf="formulario.disabled">
       <i class="fa fa-2x fa-pencil"></i>
@@ -42,8 +56,8 @@
     <div *ngIf="formulario.enabled">
       <i class="fa fa-2x fa-floppy-o" (click)="salvaNome()"></i>
     </div>
-  </div>
-  <table class="table  table-hover table-sm">
+  </div> -->
+  <table class="table  table-hover table-sm" style="font-size:14px;">
     <thead>
       <tr>
         <th>Ativo</th>
@@ -58,15 +72,17 @@
       <tr *ngFor="let item of carteira.listaAtivos">
         <td>{{item.cod}} </td>
         <td>{{item.desc}}</td>
-        <td>{{item.qtd}}</td>
-
+        <td *ngIf="item.listaOperacao"> {{calculaTotal(item.listaOperacao)}}</td> <td *ngIf="!item.listaOperacao">-</td>
+        <td *ngIf="item.listaOperacao"> {{calculaPM(item)}}</td> <td *ngIf="!item.listaOperacao">-</td>
+        <!-- <td>{{item.qtd}}</td> -->
         <!-- <td>{{item.qtd | currency:'BRL'}} </td> -->
-        <td>Cell 4</td>
         <td>
           <div>
-            <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">
+            <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#exampleModal" data-whatever="TESTE"
+              style="padding-top:0px; padding-bottom:0px;" (click)="editarOperacoes(item)" >
               Editar </button>
-            <button type="button" class="btn btn-alert btn-sm" (click)="limparListaAcoesSelecionadas(item.cod)"> Limpar </button>
+            <button type="button" class="btn btn-alert btn-sm" (click)="limparListaAcoesSelecionadas(item.cod)" style="padding-top:0px; padding-bottom:0px;">
+              Limpar </button>
           </div>
         </td>
       </tr>
@@ -74,8 +90,9 @@
   </table>
 </div>
 
+
 <div class="modal" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
+  <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">Alterar portifólio</h5>
@@ -84,46 +101,99 @@
         </button>
       </div>
       <div class="modal-body">
-        <!-- <form> -->
-        <div class="container border">
+        <form [formGroup]="formOperacaoModal" (ngSubmit)="salvarOperacao()">
           <div class="row">
-            <div class="col-md-3">
+            <div class="container border col-md-3">
+            </div>
+            <div class="container border col-md-9">
+              <div class="row">
+                  <div class="col align-self-center" style="margin-left: 15px;">
+                  <div class="form-check row">
+                      <input class="form-check-input" type="radio" formControlName="radioCompraVenda" id="radioCompra" value="compra">
+                      <label class="form-check-label" for="radioCompra">
+                        Compra
+                      </label>
+                    </div>
+                    <div class="form-check row">
+                      <input class="form-check-input" type="radio" formControlName="radioCompraVenda" id="radioVenda" value="venda">
+                      <label class="form-check-label" for="radioVenda">
+                        Venda
+                      </label>
+                    </div>
+                  </div>
+                <div class="col">
+                  <label for="recipient-name" class="col-form-label">Data:</label>
+                  <input type="date" class="form-control" formControlName="data">
+                </div>
+                <div class="col">
+                  <label for="recipient-name" class="col-form-label">Qtd:</label>
+                  <input type="number" class="form-control" formControlName="qtd">
+                </div>
+                <div class="col">
+                  <label for="recipient-name" class="col-form-label">Preço:</label>
+                  <input type="number" class="form-control" formControlName="preco">
+                </div>
+                <div class="col">
+                  <label for="recipient-name" class="col-form-label">Custo:</label>
+                  <input type="number" class="form-control" formControlName="custo">
+                </div>
+              </div>
+              <div class="row">
+                <div class="col col-md-8">
+                  <label for="message-text" class="col-form-label">Anotações:</label>
+                  <textarea class="form-control" formControlName="nota"></textarea>
+                </div>
+                <div class="col col-md-4 align-self-end">
+                    <button type="submit" class="btn btn-sm btn-primary">Salvar</button>
+                    <button type="button" class="btn btn-sm btn-secondary" data-dismiss="modal">Cancelar</button>
+                  </div>
+              </div>
+              <div class="row clear">
+                <br>
+              </div>
+              <div class="row" style="text-align:right;">
 
-              <div class="form-group">
-                <label for="recipient-name" class="col-form-label">Qtd:</label>
-                <input type="text" class="form-control" id="recipient-name">
               </div>
-            </div>
-            <div class="col">
-              <div class="form-group">
-                <label for="recipient-name" class="col-form-label">Preço:</label>
-                <input type="text" class="form-control" id="recipient-name">
-              </div>
-            </div>
-            <div class="col">
-              <div class="form-group">
-                <label for="recipient-name" class="col-form-label">Custo:</label>
-                <input type="text" class="form-control" id="recipient-name">
-              </div>
+              <br/>
             </div>
           </div>
-          <div class="row">
-            <div class="col">
-              <div class="form-group">
-                <label for="message-text" class="col-form-label">Nota:</label>
-                <textarea class="form-control" id="message-text"></textarea>
-              </div>
-            </div>
+        </form>
 
-          </div>
-
-        </div>
-
-        <!-- </form> -->
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-        <button type="button" class="btn btn-primary">Salvar</button>
+        <table class="table  table-hover table-sm" style="font-size:12px;">
+          <tr>
+            <th>#</th>
+            <th>Tipo</th>
+            <th>Data</th>
+            <th>Qtde</th>
+            <th>Preco</th>
+            <th>Custo</th>
+            <th>Anotações:</th>
+            <th></th>
+          </tr>
+          <tr *ngFor="let item of ativoSelecionadoModal.listaOperacao; let i = index">
+            <td>{{i+1}}</td>
+            <td>{{item.compraOuVenda}}</td>
+            <td>{{item.data}}</td>
+            <td>{{item.qtd}}</td>
+            <td>{{item.preco}}</td>
+            <td>{{item.custo}}</td>
+            <td>{{item.nota}}</td>
+            <td><button type="button" class="btn btn-danger btn-sm" (click)="excluirOperacao(i)" style="padding-top:0px; padding-bottom:0px;">
+                Excluir </button></td>
+          </tr>
+          <tfoot>
+              <!-- <td>teste</td>
+              <td>teste</td>
+              <td>teste</td>
+              <td>teste</td>
+              <td>teste</td>
+              <td>teste</td>
+              <td>teste</td> -->
+
+          </tfoot>
+        </table>
       </div>
     </div>
   </div>

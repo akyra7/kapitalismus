@@ -3,7 +3,7 @@ import { ConsultaAcaoService } from '../consulta-acao.service';
 import { Observable } from 'rxjs/Observable';
 import { catchError, retry } from 'rxjs/operators';
 import 'rxjs/add/operator/retry';
-import { Carteira, Ativo } from '../shared/carteira.model';
+import { Carteira, Ativo, Operacao } from '../shared/carteira.model';
 import { FbdatabaseService } from '../shared/fbdatabase.service';
 import { FormGroup, FormControl } from '@angular/forms';
 import { AngularFireAuth } from 'angularfire2/auth';
@@ -31,9 +31,20 @@ export class PortifolioAcoesComponent implements OnInit {
   nomeCarteira = '';
   listaAtivos: Ativo[];
   nomeEditavel = false;
+  ativoSelecionadoModal = new Ativo();
 
-  public formulario: FormGroup = new FormGroup({
+  public addAtivoFormulario: FormGroup = new FormGroup({
     'nomeCarteira': new FormControl(null),
+  });
+
+  public formOperacaoModal: FormGroup = new FormGroup({
+    'data': new FormControl(null),
+    'radioCompraVenda': new FormControl(null),
+    'qtd': new FormControl(null),
+    'preco': new FormControl(null),
+    'custo': new FormControl(null),
+    'nota': new FormControl(null)
+
   });
 
   ngOnInit() {
@@ -41,19 +52,28 @@ export class PortifolioAcoesComponent implements OnInit {
     this.listaAtivos = [];
     this.carteira = new Carteira();
     this.carteira.listaAtivos = new Array<Ativo>();
+    this.ativoSelecionadoModal = new Ativo();
 
     console.log('user ID -__----__-' + this.firebase.getUserId());
     // console.log('user ID -__----__-' + this.fauth.);
 
-    this.formulario.disable();
+    this.addAtivoFormulario.disable();
 
     if (this.firebase.getUserId() !== undefined) {
       this.recuperarCarteira();
-      // this.formulario.value.nomeCarteira = this.carteira.nome;
-      this.formulario.setValue({ nomeCarteira: this.carteira.nome });
-      console.log('this.carteira.nome ', this.carteira.nome);
-      console.log('this.formulario.value.nomeCarteira ', this.formulario.value.nomeCarteira);
+      // this.addAtivoFormulario.value.nomeCarteira = this.carteira.nome;
+
     }
+  }
+
+  public copiaDoAtivo(a: Ativo): Ativo {
+    const ativo = Object.assign({}, a);
+    if (a.listaOperacao !== null && a.listaOperacao !== undefined) {
+      ativo.listaOperacao = a.listaOperacao.slice();
+    } else {
+      ativo.listaOperacao = new Array<Operacao>();
+    }
+    return ativo;
   }
 
   capturaCampo(conteudo: string, event: KeyboardEvent): void {
@@ -119,7 +139,7 @@ export class PortifolioAcoesComponent implements OnInit {
       // this.valorPesquisa = '';
       return;
     }
-    this.carteira.listaAtivos.push(new Ativo(this.acaoSelecionada.acao, this.acaoSelecionada.descricao, 0));
+    this.carteira.listaAtivos.push(new Ativo(this.acaoSelecionada.acao, this.acaoSelecionada.descricao, new Array<Operacao>()));
     console.log(' PASSEI AQUI' + this.listaAtivos);
     this.listaAcoes = [];
     this.listaAcoesAux = [];
@@ -155,17 +175,23 @@ export class PortifolioAcoesComponent implements OnInit {
           console.log('this.carteira.nome -- ', this.carteira.nome);
           console.log('dado.nome ', dado.nome);
           this.carteira.listaAtivos = dado.listaAtivos === undefined ? new Array<Ativo>() : dado.listaAtivos;
+          this.addAtivoFormulario.setValue({ nomeCarteira: this.carteira.nome });
+          // this.carteira.listaAtivos[0].qtdTotal();
+          //  this.carteira.listaAtivos.forEach( (ativo) => {
+          //       Ativo.qtdTotal(ativo.listaOperacao);
+          //       Ativo.precoMedio(ativo.listaOperacao);
+          //    });
         }
       },
       erro => {
         console.log('erro: ----->    ' + erro);
 
       });
-    console.log('Carteira ->' + this.carteira);
-    this.carteira.listaAtivos.forEach(ativo => {
-      const aa = new AcaoAdicionada(ativo.cod, ativo.desc, '0');
-      this.listaAcoesAdicionadas.push(aa);
-    });
+    // console.log('Carteira ->' + this.carteira);
+    // this.carteira.listaAtivos.forEach(ativo => {
+    //   const aa = new AcaoAdicionada(ativo.cod, ativo.desc, '0');
+    //   this.listaAcoesAdicionadas.push(aa);
+    // });
   }
 
   recuperaBancoDeAcoes(conteudo: string) {
@@ -217,7 +243,7 @@ export class PortifolioAcoesComponent implements OnInit {
   }
 
   public editaNome(): void {
-    this.formulario.disabled ? this.formulario.enable() : this.formulario.disable();
+    this.addAtivoFormulario.disabled ? this.addAtivoFormulario.enable() : this.addAtivoFormulario.disable();
     if (!this.nomeEditavel) {
       // document.getElementById('nomeCarteira').blur();
       document.getElementById('nomeCarteira').click();
@@ -226,7 +252,94 @@ export class PortifolioAcoesComponent implements OnInit {
   }
 
   public salvaNome(): void {
-    this.firebase.atualizaNomeCarteira(this.formulario.value.nomeCarteira);
+    this.firebase.atualizaNomeCarteira(this.addAtivoFormulario.value.nomeCarteira);
+  }
+
+  public editarOperacoes(ativo: Ativo): void {
+    if (ativo !== null || ativo !== undefined) {
+      this.ativoSelecionadoModal = this.copiaDoAtivo(ativo);
+      this.formOperacaoModal.reset();
+      // console.log(this.ativoSelecionadoModal);
+    }
+  }
+  public salvarOperacao(): void {
+    console.log(this.formOperacaoModal);
+    if (this.ativoSelecionadoModal.listaOperacao === null || this.ativoSelecionadoModal.listaOperacao === undefined) {
+      this.ativoSelecionadoModal.listaOperacao = new Array<Operacao>();
+    }
+    const i = this.carteira.listaAtivos.findIndex(
+      (a: Ativo) => {
+        return (a.cod === this.ativoSelecionadoModal.cod);
+      }
+    );
+    if (i !== undefined) {
+      if (this.carteira.listaAtivos[i].listaOperacao === null || this.carteira.listaAtivos[i].listaOperacao === undefined) {
+        this.carteira.listaAtivos[i].listaOperacao = new Array<Operacao>();
+      }
+      const op = new Operacao(
+        this.ativoSelecionadoModal.cod,
+        this.formOperacaoModal.value.radioCompraVenda,
+        this.formOperacaoModal.value.data,
+        this.formOperacaoModal.value.qtd,
+        this.formOperacaoModal.value.preco,
+        this.formOperacaoModal.value.custo,
+        this.formOperacaoModal.value.nota,
+      );
+
+
+      this.carteira.listaAtivos[i].listaOperacao.push(op);
+
+
+      console.log(this.carteira.listaAtivos[i]);
+      this.firebase.atualizaCarteira(this.carteira).then(
+        () => {
+          this.ativoSelecionadoModal = this.copiaDoAtivo(this.carteira.listaAtivos[i]);
+          console.log('F O I   !!!!');
+        });
+       this.formOperacaoModal.reset();
+    } else {
+      return; // nao deveria vir parar aqui nunca
+    }
+
+  }
+
+  public excluirOperacao(op_i: number): void {
+    const i = this.carteira.listaAtivos.findIndex(
+      (a: Ativo) => {
+        return (a.cod === this.ativoSelecionadoModal.cod);
+      }
+    );
+    this.carteira.listaAtivos[i].listaOperacao.splice(op_i, 1);
+    this.firebase.atualizaCarteira(this.carteira).then(
+      (sucesso) => { this.ativoSelecionadoModal = this.copiaDoAtivo(this.carteira.listaAtivos[i]); },
+      (erro) => { this.carteira.listaAtivos[i] = this.copiaDoAtivo(this.ativoSelecionadoModal); }
+    );
+  }
+
+  public calculaTotal(listaOperacao: Operacao[]): number {
+       return Ativo.qtdTotal(listaOperacao);
+  }
+  public calculaPM(ativo: Ativo): number {
+    console.log(ativo);
+    const listaOperacao = ativo.listaOperacao;
+    if (listaOperacao !== null && listaOperacao !== undefined) {
+      console.log(listaOperacao);
+      let acum = 0;
+      let qtde = 0;
+      listaOperacao.forEach(op => {
+        if (op.compraOuVenda === 'compra') {
+          qtde = qtde + op.qtd;
+          acum = acum + ((op.qtd * op.preco) + op.custo);
+        } else if (op.compraOuVenda === 'venda') {
+          qtde = qtde - op.qtd;
+          acum = acum - ((op.qtd * op.preco) - op.custo);
+        }
+      });
+      if (qtde === 0) {return 0; }
+      const pm = acum / qtde;
+      return pm;
+    }
+    return 0;
   }
 
 }
