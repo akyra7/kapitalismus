@@ -7,6 +7,8 @@ import { Carteira, Ativo, Operacao } from '../shared/carteira.model';
 import { FbdatabaseService } from '../shared/fbdatabase.service';
 import { FormGroup, FormControl } from '@angular/forms';
 import { AngularFireAuth } from 'angularfire2/auth';
+import { ToastrService } from 'ngx-toastr';
+import * as JQuery from 'jquery';
 
 @Component({
   selector: 'app-portifolio-acoes',
@@ -19,17 +21,19 @@ export class PortifolioAcoesComponent implements OnInit {
   constructor(
     private consultaAcao: ConsultaAcaoService,
     private firebase: FbdatabaseService,
+    private toastr: ToastrService,
     private fauth: AngularFireAuth
   ) { }
 
-  listaAcoes = [];
-  listaAcoesAux = [];
+  listaAcoes = new Array<Ativo>();
+  listaAcoesAux = new Array<Ativo>();
   listaAcoesAdicionadas: Array<AcaoAdicionada>;
   valorPesquisa = '';
   acaoSelecionada = new AcaoAdicionada('', '', '');
   carteira: Carteira;
   nomeCarteira = '';
   listaAtivos: Ativo[];
+  listaTodasAcoes: Ativo[];
   nomeEditavel = false;
   ativoSelecionadoModal = new Ativo();
 
@@ -53,6 +57,15 @@ export class PortifolioAcoesComponent implements OnInit {
     this.carteira = new Carteira();
     this.carteira.listaAtivos = new Array<Ativo>();
     this.ativoSelecionadoModal = new Ativo();
+    this.listaTodasAcoes = new Array<Ativo>();
+    this.firebase.getListaTodasAcoes().subscribe(
+      (resposta) => {
+        console.log('lista de acoes recuperadas: ', resposta);
+        resposta.forEach(element => {
+          this.listaTodasAcoes.push(new Ativo(element.id, element.descricao));
+        });
+      }
+    );
 
     console.log('user ID -__----__-' + this.firebase.getUserId());
     // console.log('user ID -__----__-' + this.fauth.);
@@ -76,40 +89,56 @@ export class PortifolioAcoesComponent implements OnInit {
     return ativo;
   }
 
-  capturaCampo(conteudo: string, event: KeyboardEvent): void {
-
-    console.log(event.keyCode);
-    if (event.keyCode === 13) {
-      if (!this.simboloEncontrado()) {
-        if (this.listaAcoes.length > 0) {
-          this.selecionaAcao(this.listaAcoes[0].id, this.listaAcoes[0].descricao);
-          this.listaAcoes = [];
-          return;
-        } else {
-          this.valorPesquisa = null;
-          this.acaoSelecionada = new AcaoAdicionada('', '', '');
-          this.listaAcoes = [];
-          this.listaAcoesAux = [];
-          return;
-        }
-      }
-      // Trigger the button element with a click
-      document.getElementById('botao-adicionar').click();
+  salvarAcao(arg: string): void {
+    console.log('arg ', arg);
+    const a = this.getAcao(arg);
+    console.log('a: ', a);
+    if (a !== null && a !== undefined) { // se acao existe na lista de todas as acoes
+      this.selecionaAcao(a.cod, a.desc);
+    } else if (this.listaAcoes.length > 0) {
+      console.log('acoes[0].cod: ', this.listaAcoes[0].cod);
+      // this.selecionaAcao(this.listaAcoes[0].cod, this.listaAcoes[0].desc);
+      this.valorPesquisa = this.listaAcoes[0].cod.slice(0);
+      console.log(this.valorPesquisa);
+      // this.listaAcoes = [];
+      // this.listaAcoesAux = [];
+      return;
+    } else {
+      this.toastr.info(arg + ' nao encontrado');
+      this.valorPesquisa = '';
+      this.acaoSelecionada = new AcaoAdicionada('', '', '');
+      this.listaAcoes = [];
+      this.listaAcoesAux = [];
       return;
     }
 
+    if (this.jaExiste()) { // se ativo ja existe na carteira
+      alert('ativo ja existe na carteira');
+      return;
+    } else {
+      this.carteira.listaAtivos.push(new Ativo(this.acaoSelecionada.acao, this.acaoSelecionada.descricao, new Array<Operacao>()));
+      this.salvarCarteira();
 
+      this.listaAcoes = [];
+      this.listaAcoesAux = [];
+      this.valorPesquisa = '';
+    }
+  }
+
+  capturaCampo(conteudo: string, event: KeyboardEvent): void {
+
+    console.log(event);
+    event.preventDefault();
     if (conteudo.length < 2) { this.listaAcoes = []; return; }
+    console.log(event.keyCode);
+    if (event.keyCode === 13) {      // key 13 = enter
+      this.salvarAcao(conteudo);
+      return;
+    }
 
-    this.recuperaBancoDeAcoes(conteudo);
-
-    // console.log('AQUI-> ' + this.listaAcoes);
-    Object.keys(this.listaAcoes).forEach(key => {
-      // console.log(this.listaAcoes[key].id + '  -  ' + this.listaAcoes[key].descricao)
-
-    });
+    this.recuperaBancoDeAcoesJSON(conteudo, this.listaTodasAcoes);
     this.acaoSelecionada = new AcaoAdicionada('', '', '');
-    this.listaAcoesAux = this.listaAcoes;
+    this.listaAcoesAux = Object.assign({}, this.listaAcoes);
   }
 
 
@@ -123,50 +152,78 @@ export class PortifolioAcoesComponent implements OnInit {
     document.getElementById('campo-simbolo').focus();
   }
 
-  simboloEncontrado() {
-    for (let i = 0; i < this.listaAcoesAux.length; i++) {
-      if (this.listaAcoesAux[i].id === this.acaoSelecionada.acao) { return true; }
+
+  jaExiste(): boolean {
+    if (this.carteira.listaAtivos == null || this.carteira.listaAtivos === undefined) { return false; }
+    for (let i = 0; i < this.carteira.listaAtivos.length; i++) {
+      if (this.carteira.listaAtivos[i].cod.toUpperCase() === this.acaoSelecionada.acao.toUpperCase()) { return true; }
     }
     return false;
+  }
+
+  getAcao(simbolo: string): Ativo { // fazer validacao serverside se o simbolo existe no BD;
+
+    for (let i = 0; i < this.listaTodasAcoes.length; i++) {
+      if (simbolo.toUpperCase() === this.listaTodasAcoes[i].cod.toUpperCase()) { return this.listaTodasAcoes[i]; }
+    }
+    return null;
   }
 
   adicionaAcao() {
     // console.log('adicionada acao: ' + this.valorPesquisa);
     // this.consultaAcao.consultaAcao(this.acaoSelecionada).subscribe();
-    if (!this.simboloEncontrado()) {
-      // this.listaAcoes = [];
-      // this.listaAcoesAux = [];
-      // this.valorPesquisa = '';
-      return;
-    }
-    this.carteira.listaAtivos.push(new Ativo(this.acaoSelecionada.acao, this.acaoSelecionada.descricao, new Array<Operacao>()));
-    console.log(' PASSEI AQUI' + this.listaAtivos);
-    this.listaAcoes = [];
-    this.listaAcoesAux = [];
-    this.valorPesquisa = '';
-
-    // this.recuperaCotacaoAPI(this.acaoSelecionada.acao);
+    // se ativo nao existe no banco de acoes cadastradas
+    this.salvarAcao(this.valorPesquisa);
+    // alert('ativo nao encontrado');
 
   }
 
   limparListaAcoesSelecionadas(id: string) {
 
     for (let i = this.carteira.listaAtivos.length - 1; i >= 0; i--) {
-      console.log(this.carteira.listaAtivos[i].cod + '' + id);
+      // console.log(this.carteira.listaAtivos[i].cod + '' + id);
       if (this.carteira.listaAtivos[i].cod === id) {
         this.carteira.listaAtivos.splice(i, 1);
+        this.firebase.atualizaCarteira(this.carteira).then(resp => {
+          this.recuperarCarteira();
+          this.toastr.toastrConfig.positionClass = 'toast-top-center';
+          this.toastr.toastrConfig.closeButton = true;
+          this.toastr.info('', id + ' removido com sucesso.');
+          // this.toastr.toastrConfig.positionClass = 'toast-top-center';
+          // app.config(function(toastrConfig) {
+          //   angular.extend(toastrConfig, {
+          //     autoDismiss: false,
+          //     containerId: 'toast-container',
+          //     maxOpened: 0,
+          //     newestOnTop: true,
+          //     positionClass: 'toast-top-right',
+          //     preventDuplicates: false,
+          //     preventOpenDuplicates: false,
+          //     target: 'body'
+          //   });
+          // });
+          // this.toastr.info('', 'Carteira inserida com sucesso');
+          // this.toastr.warning('', 'CUIDADO!!!');
+          // this.toastr.error('', 'Erro escroto detectado');
+        });
+        // this.salvarCarteira();
       }
     }
   }
 
   salvarCarteira() {
     this.carteira.nome = 'nomeDaCarteira';
-    this.firebase.insereCarteira(this.carteira);
+    this.firebase.atualizaCarteira(this.carteira).then(resp => {
+      this.recuperarCarteira();
+      this.toastr.toastrConfig.positionClass = 'toast-top-center';
+      this.toastr.toastrConfig.closeButton = true;
+      this.toastr.success('', 'Carteira inserida com sucesso');
+    });
   }
   recuperarCarteira() {
     this.firebase.getCarteira().subscribe(
       (dado: Carteira) => {
-        console.log('DADO recuperado: ----->    ', dado);
+        // console.log('DADO recuperado: ----->    ', dado);
         if (dado === null) {
           this.carteira = new Carteira();
         } else {
@@ -187,11 +244,16 @@ export class PortifolioAcoesComponent implements OnInit {
         console.log('erro: ----->    ' + erro);
 
       });
-    // console.log('Carteira ->' + this.carteira);
-    // this.carteira.listaAtivos.forEach(ativo => {
-    //   const aa = new AcaoAdicionada(ativo.cod, ativo.desc, '0');
-    //   this.listaAcoesAdicionadas.push(aa);
-    // });
+  }
+
+  recuperaBancoDeAcoesJSON(search_term: string, listaTodosAtivos: Ativo[]) {
+
+    const search = search_term.toUpperCase();
+    this.listaAcoes = JQuery.grep(listaTodosAtivos, function (value) {
+      // console.log('value: ', value);
+      return value.cod.toUpperCase().indexOf(search) >= 0 || value.desc.toUpperCase().indexOf(search) >= 0;
+    });
+    // console.log('listaAcoes' , this.listaAcoes);
   }
 
   recuperaBancoDeAcoes(conteudo: string) {
@@ -296,7 +358,7 @@ export class PortifolioAcoesComponent implements OnInit {
           this.ativoSelecionadoModal = this.copiaDoAtivo(this.carteira.listaAtivos[i]);
           console.log('F O I   !!!!');
         });
-       this.formOperacaoModal.reset();
+      this.formOperacaoModal.reset();
     } else {
       return; // nao deveria vir parar aqui nunca
     }
@@ -317,7 +379,7 @@ export class PortifolioAcoesComponent implements OnInit {
   }
 
   public calculaTotal(listaOperacao: Operacao[]): number {
-       return Ativo.qtdTotal(listaOperacao);
+    return Ativo.qtdTotal(listaOperacao);
   }
   public calculaPM(ativo: Ativo): number {
     console.log(ativo);
@@ -335,7 +397,7 @@ export class PortifolioAcoesComponent implements OnInit {
           acum = acum - ((op.qtd * op.preco) - op.custo);
         }
       });
-      if (qtde === 0) {return 0; }
+      if (qtde === 0) { return 0; }
       const pm = acum / qtde;
       return pm;
     }

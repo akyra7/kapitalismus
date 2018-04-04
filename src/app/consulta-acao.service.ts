@@ -47,7 +47,7 @@ export class ConsultaAcaoService {
       ).retry(10);
     // retry(5);
     // catchError(console.log('ALGUM ERRO OCORREU NO SERVICO'))
-    
+
   }
 
 }

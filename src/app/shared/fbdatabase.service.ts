@@ -20,6 +20,7 @@ export class FbdatabaseService {
 
   ) { }
 
+
   getCarteira(): Observable<any> {
     if (this.getUserId() !== undefined) {
       console.log('USER ID  getCarteira() -> ', this.getUserId());
@@ -27,54 +28,21 @@ export class FbdatabaseService {
     }
   }
 
-  insereCarteira(wallet: Carteira) {
+  getListaTodasAcoes(): Observable<any> {
+    return this.db.object('/ativos/acoes').valueChanges();
+  }
+
+  insereCarteira(wallet: Carteira): Promise<any> {
     // console.log('OBjeto a ser persistido' + JSON.stringify(wallet));
     if (this.getUserId() !== undefined) {
       console.log('USER ID -> ' + this.getUserId());
 
-      this.db.database.ref('/users/' + this.getUserId() + '/carteira').set({
+      return this.db.database.ref('/users/' + this.getUserId() + '/carteira').set({
         nome: wallet.nome,
         listaAtivos: wallet.listaAtivos
-      }).then(resp => {
-        this.toastr.toastrConfig.positionClass = 'toast-top-center';
-        this.toastr.toastrConfig.closeButton = true;
-        this.toastr.success('', 'Carteira inserida com sucesso');
-        // this.toastr.toastrConfig.positionClass = 'toast-top-center';
-        // app.config(function(toastrConfig) {
-        //   angular.extend(toastrConfig, {
-        //     autoDismiss: false,
-        //     containerId: 'toast-container',
-        //     maxOpened: 0,
-        //     newestOnTop: true,
-        //     positionClass: 'toast-top-right',
-        //     preventDuplicates: false,
-        //     preventOpenDuplicates: false,
-        //     target: 'body'
-        //   });
-        // });
-        // this.toastr.info('', 'Carteira inserida com sucesso');
-        // this.toastr.warning('', 'CUIDADO!!!');
-        // this.toastr.error('', 'Erro escroto detectado');
-
-      }
-      );
+      });
     }
 
-  }
-
-
-  public atualizaNomeCarteira(novoNome: string): void {
-    if (this.getUserId() === undefined) { console.log(this.getUserId()); return; }
-    console.log('atualizando nome para ' + novoNome);
-    this.db.database.ref('/users/' + this.getUserId() + '/carteira').update({
-      nome: novoNome
-    }).then(
-      (sucesso) => { console.log('tivemos sucesso ', sucesso); }
-    )
-      .catch(
-        erro => { console.log('algum erro', erro); }
-
-      );
   }
 
   public atualizaCarteira(wallet: Carteira): Promise<any> {
@@ -99,5 +67,22 @@ export class FbdatabaseService {
       return userId;
     }
   }
+
+
+  public atualizaNomeCarteira(novoNome: string): void {
+    if (this.getUserId() === undefined) { console.log(this.getUserId()); return; }
+    console.log('atualizando nome para ' + novoNome);
+    this.db.database.ref('/users/' + this.getUserId() + '/carteira').update({
+      nome: novoNome
+    }).then(
+      (sucesso) => { console.log('tivemos sucesso ', sucesso); }
+    )
+      .catch(
+        erro => { console.log('algum erro', erro); }
+
+      );
+  }
+
+
 
 }

@@ -20,6 +20,7 @@ import { RouterModule } from '@angular/router';
 import { ROUTES } from './app.routes';
 import { AutenticacaoComponent } from './shared/autenticacao/autenticacao.component';
 import { AuthGuard } from './shared/auth-guard.service';
+import { PortifolioComponent } from './portifolio/portifolio.component';
 
 
 
@@ -30,7 +31,8 @@ import { AuthGuard } from './shared/auth-guard.service';
     PortifolioAcoesComponent,
     LoginComponent,
     CadastroComponent,
-    AutenticacaoComponent
+    AutenticacaoComponent,
+    PortifolioComponent
   ],
   imports: [
     BrowserModule,

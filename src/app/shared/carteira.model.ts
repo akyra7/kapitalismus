@@ -10,6 +10,7 @@ export class Carteira {
       this.listaAtivos = new Array<Ativo>();
     }
   }
+
 }
 
 export class Ativo {

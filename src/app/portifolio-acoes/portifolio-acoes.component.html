@@ -3,60 +3,32 @@
 <div class="container">
   <nav class="navbar navbar-light bg-light">
     <div class="form-inline">
+      <form [formGroup]="addAtivoFormulario">
+        <input #pesquisa class="form-control mr-sm-2" type="search" placeholder="Símbolo" aria-label="Search" [(value)]="valorPesquisa"
+          (keyup)="capturaCampo(pesquisa.value, $event)" id="campo-simbolo" autocomplete="off">
+        <button type ="button" id="botao-adicionar" class="btn btn-outline-success my-2 my-sm-0" (click)="adicionaAcao()">Adicionar</button>
 
-      <input #pesquisa class="form-control mr-sm-2" type="search" placeholder="Símbolo" aria-label="Search" [(value)]="valorPesquisa"
-        (keyup)="capturaCampo(pesquisa.value, $event)" id="campo-simbolo">
-      <button id="botao-adicionar" class="btn btn-outline-success my-2 my-sm-0" (click)="adicionaAcao()">Adicionar</button>
-      <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo" style="margin-left:20px">
-        EDITAR</button>
+        <input id="nomeCarteira" type="text" class="form-control" formControlName="nomeCarteira" style="border:0; font-size:20px;">
+
+        <div class="btn" (click)="editaNome()">
+          <div *ngIf="addAtivoFormulario.disabled">
+            <i class="fa  fa-pencil"></i>
+          </div>
+          <div *ngIf="addAtivoFormulario.enabled">
+            <i class="fa  fa-floppy-o" (click)="salvaNome()"></i>
+          </div>
+        </div>
+      </form>
     </div>
-    <a class='btn btn-warning' (click)="recuperarCarteira()">
-      <i class="fa fa-download"></i> Recuperar
-    </a>
-    <a class='btn btn-success' (click)="salvarCarteira()">
-      <i class="fa fa-floppy-o"></i> Salvar
-    </a>
   </nav>
 
-  <!--   <ul class="list-group w-25" style="position: absolute" >
-    
-      <li *ngFor="let item of listaAcoes" class="list-group-item list-group-item-primary">{{item.id}} - {{item.descricao}}</li>
-  </ul> -->
 
   <div class="list-group " style="position: absolute">
     <a *ngFor="let item of listaAcoes" style="height: 35px; padding: 5px 15px; cursor:pointer;" class="list-group-item list-group-item-primary list-group-item-action"
-      (click)="selecionaAcao(item.id, item.descricao)">{{item.id}} - {{item.descricao}}
+      (click)="selecionaAcao(item.cod, item.desc)">{{item.cod}} - {{item.desc}}
     </a>
   </div>
-  <hr>
-  <form [formGroup]="addAtivoFormulario">
-    <div class="input-group mb-3">
 
-      <input id="nomeCarteira" type="text" class="form-control" formControlName="nomeCarteira" style="border:0;background-color: #FFFF;font-size:25px;">
-      <div class="input-group-append">
-          <div class="btn" (click)="editaNome()">
-              <div *ngIf="addAtivoFormulario.disabled">
-                <i class="fa fa-2x fa-pencil"></i>
-              </div>
-              <div *ngIf="addAtivoFormulario.enabled">
-                <i class="fa fa-2x fa-floppy-o" (click)="salvaNome()"></i>
-              </div>
-            </div>
-        </div>
-
-    </div>
-    <!-- [(disabled)]="nomeEditavel" -->
-  </form>
-
-  <!-- <div class="btn" (click)="editaNome()">
-
-    <div *ngIf="formulario.disabled">
-      <i class="fa fa-2x fa-pencil"></i>
-    </div>
-    <div *ngIf="formulario.enabled">
-      <i class="fa fa-2x fa-floppy-o" (click)="salvaNome()"></i>
-    </div>
-  </div> -->
   <table class="table  table-hover table-sm" style="font-size:14px;">
     <thead>
       <tr>
@@ -69,20 +41,23 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let item of carteira.listaAtivos">
+      <tr *ngFor="let item of carteira.listaAtivos" id="linhaTabela" style="font-size: 12px">
         <td>{{item.cod}} </td>
         <td>{{item.desc}}</td>
-        <td *ngIf="item.listaOperacao"> {{calculaTotal(item.listaOperacao)}}</td> <td *ngIf="!item.listaOperacao">-</td>
-        <td *ngIf="item.listaOperacao"> {{calculaPM(item)}}</td> <td *ngIf="!item.listaOperacao">-</td>
+        <td *ngIf="item.listaOperacao"> {{calculaTotal(item.listaOperacao)}}</td>
+        <td *ngIf="!item.listaOperacao">-</td>
+        <td *ngIf="item.listaOperacao"> {{calculaPM(item)}}</td>
+        <td *ngIf="!item.listaOperacao">-</td>
         <!-- <td>{{item.qtd}}</td> -->
         <!-- <td>{{item.qtd | currency:'BRL'}} </td> -->
         <td>
           <div>
-            <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#exampleModal" data-whatever="TESTE"
-              style="padding-top:0px; padding-bottom:0px;" (click)="editarOperacoes(item)" >
-              Editar </button>
-            <button type="button" class="btn btn-alert btn-sm" (click)="limparListaAcoesSelecionadas(item.cod)" style="padding-top:0px; padding-bottom:0px;">
-              Limpar </button>
+            <a type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#exampleModal" data-whatever="TESTE"
+              style="padding-top:0px; padding-bottom:0px; font-size: 12px;" (click)="editarOperacoes(item)">
+              Editar </a>
+            <a type="button" class="btn btn-alert btn-sm" (click)="limparListaAcoesSelecionadas(item.cod)" 
+              style="padding-top:0px; padding-bottom:0px; font-size: 12px;">
+              Limpar </a>
           </div>
         </td>
       </tr>
@@ -107,20 +82,20 @@
             </div>
             <div class="container border col-md-9">
               <div class="row">
-                  <div class="col align-self-center" style="margin-left: 15px;">
+                <div class="col align-self-center" style="margin-left: 15px;">
                   <div class="form-check row">
-                      <input class="form-check-input" type="radio" formControlName="radioCompraVenda" id="radioCompra" value="compra">
-                      <label class="form-check-label" for="radioCompra">
-                        Compra
-                      </label>
-                    </div>
-                    <div class="form-check row">
-                      <input class="form-check-input" type="radio" formControlName="radioCompraVenda" id="radioVenda" value="venda">
-                      <label class="form-check-label" for="radioVenda">
-                        Venda
-                      </label>
-                    </div>
+                    <input class="form-check-input" type="radio" formControlName="radioCompraVenda" id="radioCompra" value="compra">
+                    <label class="form-check-label" for="radioCompra">
+                      Compra
+                    </label>
                   </div>
+                  <div class="form-check row">
+                    <input class="form-check-input" type="radio" formControlName="radioCompraVenda" id="radioVenda" value="venda">
+                    <label class="form-check-label" for="radioVenda">
+                      Venda
+                    </label>
+                  </div>
+                </div>
                 <div class="col">
                   <label for="recipient-name" class="col-form-label">Data:</label>
                   <input type="date" class="form-control" formControlName="data">
@@ -144,9 +119,9 @@
                   <textarea class="form-control" formControlName="nota"></textarea>
                 </div>
                 <div class="col col-md-4 align-self-end">
-                    <button type="submit" class="btn btn-sm btn-primary">Salvar</button>
-                    <button type="button" class="btn btn-sm btn-secondary" data-dismiss="modal">Cancelar</button>
-                  </div>
+                  <button type="submit" class="btn btn-sm btn-primary">Salvar</button>
+                  <button type="button" class="btn btn-sm btn-secondary" data-dismiss="modal">Cancelar</button>
+                </div>
               </div>
               <div class="row clear">
                 <br>
@@ -180,11 +155,13 @@
             <td>{{item.preco}}</td>
             <td>{{item.custo}}</td>
             <td>{{item.nota}}</td>
-            <td><button type="button" class="btn btn-danger btn-sm" (click)="excluirOperacao(i)" style="padding-top:0px; padding-bottom:0px;">
-                Excluir </button></td>
+            <td>
+              <button type="button" class="btn btn-danger btn-sm" (click)="excluirOperacao(i)" style="padding-top:0px; padding-bottom:0px;">
+                Excluir </button>
+            </td>
           </tr>
           <tfoot>
-              <!-- <td>teste</td>
+            <!-- <td>teste</td>
               <td>teste</td>
               <td>teste</td>
               <td>teste</td>

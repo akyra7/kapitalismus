@@ -1,0 +1,2374 @@
+{
+	"ativos": [{
+			"acoes": [{
+					"id": "AALL34",
+					"descricao": "AMERICAN AIR"
+				},
+				{
+					"id": "AALR3",
+					"descricao": "ALLIAR"
+				},
+				{
+					"id": "AAPL34",
+					"descricao": "APPLE"
+				},
+				{
+					"id": "ABBV34",
+					"descricao": "ABBVIE"
+				},
+				{
+					"id": "ABCB4",
+					"descricao": "ABC BRASIL"
+				},
+				{
+					"id": "ABEV3",
+					"descricao": "AMBEV S"
+				},
+				{
+					"id": "ABTT34",
+					"descricao": "ABBOTT"
+				},
+				{
+					"id": "ACNB34",
+					"descricao": "ACCENTURE"
+				},
+				{
+					"id": "ADHM3",
+					"descricao": "ADVANCED DH"
+				},
+				{
+					"id": "AELP3",
+					"descricao": "AES ELPA"
+				},
+				{
+					"id": "AETB34",
+					"descricao": "AETNA INC"
+				},
+				{
+					"id": "AFLT3",
+					"descricao": "AFLUENTE T"
+				},
+				{
+					"id": "AFLU3",
+					"descricao": "AFLUENTE"
+				},
+				{
+					"id": "AGRO3",
+					"descricao": "BRASILAGRO"
+				},
+				{
+					"id": "AHEB3",
+					"descricao": "SPTURIS"
+				},
+				{
+					"id": "AHEB5",
+					"descricao": "SPTURIS"
+				},
+				{
+					"id": "AHEB6",
+					"descricao": "SPTURIS"
+				},
+				{
+					"id": "AIGB34",
+					"descricao": "AIG GROUP"
+				},
+				{
+					"id": "ALPA3",
+					"descricao": "ALPARGATAS"
+				},
+				{
+					"id": "ALPA4",
+					"descricao": "ALPARGATAS"
+				},
+				{
+					"id": "ALSC3",
+					"descricao": "ALIANSCE"
+				},
+				{
+					"id": "ALUP11",
+					"descricao": "ALUPAR"
+				},
+				{
+					"id": "ALUP3",
+					"descricao": "ALUPAR"
+				},
+				{
+					"id": "ALUP4",
+					"descricao": "ALUPAR"
+				},
+				{
+					"id": "AMAR3",
+					"descricao": "LOJAS MARISA"
+				},
+				{
+					"id": "AMGN34",
+					"descricao": "AMGEN"
+				},
+				{
+					"id": "AMZO34",
+					"descricao": "AMAZON"
+				},
+				{
+					"id": "ANDV34",
+					"descricao": "ANDEAVOR"
+				},
+				{
+					"id": "ANIM3",
+					"descricao": "ANIMA"
+				},
+				{
+					"id": "APTI3",
+					"descricao": "ALIPERTI"
+				},
+				{
+					"id": "APTI4",
+					"descricao": "ALIPERTI"
+				},
+				{
+					"id": "ARMT34",
+					"descricao": "ARCELOR"
+				},
+				{
+					"id": "ARNC34",
+					"descricao": "ARCONIC"
+				},
+				{
+					"id": "ARZZ3",
+					"descricao": "AREZZO CO"
+				},
+				{
+					"id": "ATOM3",
+					"descricao": "ATOMPAR"
+				},
+				{
+					"id": "ATTB34",
+					"descricao": "ATT INC"
+				},
+				{
+					"id": "AVON34",
+					"descricao": "AVON"
+				},
+				{
+					"id": "AXPB34",
+					"descricao": "AMERICAN EXP"
+				},
+				{
+					"id": "AZEV3",
+					"descricao": "AZEVEDO"
+				},
+				{
+					"id": "AZEV4",
+					"descricao": "AZEVEDO"
+				},
+				{
+					"id": "AZUL4",
+					"descricao": "AZUL"
+				},
+				{
+					"id": "BALM4",
+					"descricao": "BAUMER"
+				},
+				{
+					"id": "BAUH4",
+					"descricao": "EXCELSIOR"
+				},
+				{
+					"id": "BAZA3",
+					"descricao": "AMAZONIA"
+				},
+				{
+					"id": "BBAS3",
+					"descricao": "BRASIL"
+				},
+				{
+					"id": "BBDC3",
+					"descricao": "BRADESCO"
+				},
+				{
+					"id": "BBDC4",
+					"descricao": "BRADESCO"
+				},
+				{
+					"id": "BBRK3",
+					"descricao": "BR BROKERS"
+				},
+				{
+					"id": "BBSE3",
+					"descricao": "BBSEGURIDADE"
+				},
+				{
+					"id": "BBYY34",
+					"descricao": "BEST BUY"
+				},
+				{
+					"id": "BDLL4",
+					"descricao": "BARDELLA"
+				},
+				{
+					"id": "BEEF3",
+					"descricao": "MINERVA"
+				},
+				{
+					"id": "BEES3",
+					"descricao": "BANESTES"
+				},
+				{
+					"id": "BEES4",
+					"descricao": "BANESTES"
+				},
+				{
+					"id": "BERK34",
+					"descricao": "BERKSHIRE"
+				},
+				{
+					"id": "BGIP4",
+					"descricao": "BANESE"
+				},
+				{
+					"id": "BIIB34",
+					"descricao": "BIOGEN"
+				},
+				{
+					"id": "BIOM3",
+					"descricao": "BIOMM"
+				},
+				{
+					"id": "BMEB3",
+					"descricao": "MERC BRASIL"
+				},
+				{
+					"id": "BMEB4",
+					"descricao": "MERC BRASIL"
+				},
+				{
+					"id": "BMIN3",
+					"descricao": "MERC INVEST"
+				},
+				{
+					"id": "BMKS3",
+					"descricao": "BIC MONARK"
+				},
+				{
+					"id": "BMYB34",
+					"descricao": "BRISTOLMYERS"
+				},
+				{
+					"id": "BNBR3",
+					"descricao": "NORD BRASIL"
+				},
+				{
+					"id": "BOAC34",
+					"descricao": "BANK AMERICA"
+				},
+				{
+					"id": "BOBR4",
+					"descricao": "BOMBRIL"
+				},
+				{
+					"id": "BOEI34",
+					"descricao": "BOEING"
+				},
+				{
+					"id": "BONY34",
+					"descricao": "BNY MELLON"
+				},
+				{
+					"id": "BOXP34",
+					"descricao": "BOSTON PROP"
+				},
+				{
+					"id": "BPAC3",
+					"descricao": "BTGP BANCO"
+				},
+				{
+					"id": "BPAC5",
+					"descricao": "BTGP BANCO"
+				},
+				{
+					"id": "BPAN4",
+					"descricao": "BANCO PAN"
+				},
+				{
+					"id": "BPHA3",
+					"descricao": "BR PHARMA"
+				},
+				{
+					"id": "BRAP3",
+					"descricao": "BRADESPAR"
+				},
+				{
+					"id": "BRAP4",
+					"descricao": "BRADESPAR"
+				},
+				{
+					"id": "BRFS3",
+					"descricao": "BRF SA"
+				},
+				{
+					"id": "BRGE11",
+					"descricao": "ALFA CONSORC"
+				},
+				{
+					"id": "BRGE12",
+					"descricao": "ALFA CONSORC"
+				},
+				{
+					"id": "BRGE3",
+					"descricao": "ALFA CONSORC"
+				},
+				{
+					"id": "BRGE5",
+					"descricao": "ALFA CONSORC"
+				},
+				{
+					"id": "BRGE6",
+					"descricao": "ALFA CONSORC"
+				},
+				{
+					"id": "BRGE7",
+					"descricao": "ALFA CONSORC"
+				},
+				{
+					"id": "BRGE8",
+					"descricao": "ALFA CONSORC"
+				},
+				{
+					"id": "BRIN3",
+					"descricao": "BR INSURANCE"
+				},
+				{
+					"id": "BRIV3",
+					"descricao": "ALFA INVEST"
+				},
+				{
+					"id": "BRIV4",
+					"descricao": "ALFA INVEST"
+				},
+				{
+					"id": "BRKM3",
+					"descricao": "BRASKEM"
+				},
+				{
+					"id": "BRKM5",
+					"descricao": "BRASKEM"
+				},
+				{
+					"id": "BRKM6",
+					"descricao": "BRASKEM"
+				},
+				{
+					"id": "BRML3",
+					"descricao": "BR MALLS PAR"
+				},
+				{
+					"id": "BRPR3",
+					"descricao": "BR PROPERT"
+				},
+				{
+					"id": "BRSR3",
+					"descricao": "BANRISUL"
+				},
+				{
+					"id": "BRSR5",
+					"descricao": "BANRISUL"
+				},
+				{
+					"id": "BRSR6",
+					"descricao": "BANRISUL"
+				},
+				{
+					"id": "BSAN33",
+					"descricao": "BANSANTANDER"
+				},
+				{
+					"id": "BSEV3",
+					"descricao": "BIOSEV"
+				},
+				{
+					"id": "BSLI3",
+					"descricao": "BRB BANCO"
+				},
+				{
+					"id": "BSLI4",
+					"descricao": "BRB BANCO"
+				},
+				{
+					"id": "BTOW3",
+					"descricao": "B"
+				},
+				{
+					"id": "BTTL3",
+					"descricao": "BATTISTELLA"
+				},
+				{
+					"id": "BTTL4",
+					"descricao": "BATTISTELLA"
+				},
+				{
+					"id": "BVMF3",
+					"descricao": "BMFBOVESPA"
+				},
+				{
+					"id": "CALI4",
+					"descricao": "CONST A LIND"
+				},
+				{
+					"id": "CAMB4",
+					"descricao": "CAMBUCI"
+				},
+				{
+					"id": "CAML3",
+					"descricao": "CAMIL"
+				},
+				{
+					"id": "CARD3",
+					"descricao": "CSU CARDSYST"
+				},
+				{
+					"id": "CARE11",
+					"descricao": "FII DEA CARE"
+				},
+				{
+					"id": "CASN3",
+					"descricao": "CASAN"
+				},
+				{
+					"id": "CASN4",
+					"descricao": "CASAN"
+				},
+				{
+					"id": "CATP34",
+					"descricao": "CATERPILLAR"
+				},
+				{
+					"id": "CBEE3",
+					"descricao": "AMPLA ENERG"
+				},
+				{
+					"id": "CCPR3",
+					"descricao": "CYRE COM CCP"
+				},
+				{
+					"id": "CCRO3",
+					"descricao": "CCR SA"
+				},
+				{
+					"id": "CCXC3",
+					"descricao": "CCX CARVAO"
+				},
+				{
+					"id": "CEBR3",
+					"descricao": "CEB"
+				},
+				{
+					"id": "CEBR5",
+					"descricao": "CEB"
+				},
+				{
+					"id": "CEBR6",
+					"descricao": "CEB"
+				},
+				{
+					"id": "CEDO3",
+					"descricao": "CEDRO"
+				},
+				{
+					"id": "CEDO4",
+					"descricao": "CEDRO"
+				},
+				{
+					"id": "CEEB3",
+					"descricao": "COELBA"
+				},
+				{
+					"id": "CEEB5",
+					"descricao": "COELBA"
+				},
+				{
+					"id": "CEED3",
+					"descricao": "CEEE D"
+				},
+				{
+					"id": "CEED4",
+					"descricao": "CEEE D"
+				},
+				{
+					"id": "CEGR3",
+					"descricao": "CEG"
+				},
+				{
+					"id": "CELP3",
+					"descricao": "CELPA"
+				},
+				{
+					"id": "CELP5",
+					"descricao": "CELPA"
+				},
+				{
+					"id": "CELP7",
+					"descricao": "CELPA"
+				},
+				{
+					"id": "CEPE5",
+					"descricao": "CELPE"
+				},
+				{
+					"id": "CEPE6",
+					"descricao": "CELPE"
+				},
+				{
+					"id": "CESP3",
+					"descricao": "CESP"
+				},
+				{
+					"id": "CESP5",
+					"descricao": "CESP"
+				},
+				{
+					"id": "CESP6",
+					"descricao": "CESP"
+				},
+				{
+					"id": "CGAS3",
+					"descricao": "COMGAS"
+				},
+				{
+					"id": "CGAS5",
+					"descricao": "COMGAS"
+				},
+				{
+					"id": "CGRA3",
+					"descricao": "GRAZZIOTIN"
+				},
+				{
+					"id": "CGRA4",
+					"descricao": "GRAZZIOTIN"
+				},
+				{
+					"id": "CHKE34",
+					"descricao": "CHESAPEAKE"
+				},
+				{
+					"id": "CHVX34",
+					"descricao": "CHEVRON"
+				},
+				{
+					"id": "CIEL3",
+					"descricao": "CIELO"
+				},
+				{
+					"id": "CLGN34",
+					"descricao": "CELGENE CORP"
+				},
+				{
+					"id": "CLSC3",
+					"descricao": "CELESC"
+				},
+				{
+					"id": "CLSC4",
+					"descricao": "CELESC"
+				},
+				{
+					"id": "CMCS34",
+					"descricao": "COMCAST"
+				},
+				{
+					"id": "CMIG3",
+					"descricao": "CEMIG"
+				},
+				{
+					"id": "CMIG4",
+					"descricao": "CEMIG"
+				},
+				{
+					"id": "COCA34",
+					"descricao": "COLA COMPANY"
+				},
+				{
+					"id": "COCE3",
+					"descricao": "COELCE"
+				},
+				{
+					"id": "COCE5",
+					"descricao": "COELCE"
+				},
+				{
+					"id": "COLG34",
+					"descricao": "COLGATE"
+				},
+				{
+					"id": "COPH34",
+					"descricao": "COPHILLIPS"
+				},
+				{
+					"id": "CORR4",
+					"descricao": "COR RIBEIRO"
+				},
+				{
+					"id": "COTY34",
+					"descricao": "COTY INC"
+				},
+				{
+					"id": "COWC34",
+					"descricao": "COSTCO"
+				},
+				{
+					"id": "CPFE3",
+					"descricao": "CPFL ENERGIA"
+				},
+				{
+					"id": "CPLE3",
+					"descricao": "COPEL"
+				},
+				{
+					"id": "CPLE5",
+					"descricao": "COPEL"
+				},
+				{
+					"id": "CPLE6",
+					"descricao": "COPEL"
+				},
+				{
+					"id": "CPRE3",
+					"descricao": "CPFL RENOVAV"
+				},
+				{
+					"id": "CRDE3",
+					"descricao": "CR"
+				},
+				{
+					"id": "CREM3",
+					"descricao": "CREMER"
+				},
+				{
+					"id": "CRFB3",
+					"descricao": "CARREFOUR BR"
+				},
+				{
+					"id": "CRIV3",
+					"descricao": "ALFA FINANC"
+				},
+				{
+					"id": "CRIV4",
+					"descricao": "ALFA FINANC"
+				},
+				{
+					"id": "CRPG3",
+					"descricao": "CRISTAL"
+				},
+				{
+					"id": "CRPG5",
+					"descricao": "CRISTAL"
+				},
+				{
+					"id": "CRPG6",
+					"descricao": "CRISTAL"
+				},
+				{
+					"id": "CSAB3",
+					"descricao": "SEG AL BAHIA"
+				},
+				{
+					"id": "CSAB4",
+					"descricao": "SEG AL BAHIA"
+				},
+				{
+					"id": "CSAN3",
+					"descricao": "COSAN"
+				},
+				{
+					"id": "CSCO34",
+					"descricao": "CISCO"
+				},
+				{
+					"id": "CSMG3",
+					"descricao": "COPASA"
+				},
+				{
+					"id": "CSNA3",
+					"descricao": "SID NACIONAL"
+				},
+				{
+					"id": "CSRN3",
+					"descricao": "COSERN"
+				},
+				{
+					"id": "CSRN5",
+					"descricao": "COSERN"
+				},
+				{
+					"id": "CSRN6",
+					"descricao": "COSERN"
+				},
+				{
+					"id": "CTAX3",
+					"descricao": "CONTAX"
+				},
+				{
+					"id": "CTGP34",
+					"descricao": "CITIGROUP"
+				},
+				{
+					"id": "CTKA3",
+					"descricao": "KARSTEN"
+				},
+				{
+					"id": "CTKA4",
+					"descricao": "KARSTEN"
+				},
+				{
+					"id": "CTNM3",
+					"descricao": "COTEMINAS"
+				},
+				{
+					"id": "CTNM4",
+					"descricao": "COTEMINAS"
+				},
+				{
+					"id": "CTSA3",
+					"descricao": "SANTANENSE"
+				},
+				{
+					"id": "CTSA4",
+					"descricao": "SANTANENSE"
+				},
+				{
+					"id": "CTSH34",
+					"descricao": "COGNIZANT"
+				},
+				{
+					"id": "CVCB3",
+					"descricao": "CVC BRASIL"
+				},
+				{
+					"id": "CVSH34",
+					"descricao": "CVS HEALTH"
+				},
+				{
+					"id": "CYRE3",
+					"descricao": "CYRELA REALT"
+				},
+				{
+					"id": "CZLT33",
+					"descricao": "COSAN LTD"
+				},
+				{
+					"id": "DAGB33",
+					"descricao": "DUFRY AG"
+				},
+				{
+					"id": "DASA3",
+					"descricao": "DASA"
+				},
+				{
+					"id": "DEAI34",
+					"descricao": "DELTA"
+				},
+				{
+					"id": "DHER34",
+					"descricao": "DANAHER CORP"
+				},
+				{
+					"id": "DIRR3",
+					"descricao": "DIRECIONAL"
+				},
+				{
+					"id": "DISB34",
+					"descricao": "WALT DISNEY"
+				},
+				{
+					"id": "DMMO3",
+					"descricao": "DOMMO"
+				},
+				{
+					"id": "DOHL3",
+					"descricao": "DOHLER"
+				},
+				{
+					"id": "DOHL4",
+					"descricao": "DOHLER"
+				},
+				{
+					"id": "DTCY3",
+					"descricao": "DTCOM DIRECT"
+				},
+				{
+					"id": "DTEX3",
+					"descricao": "DURATEX"
+				},
+				{
+					"id": "DUKB34",
+					"descricao": "DUKE ENERGY"
+				},
+				{
+					"id": "DUPO34",
+					"descricao": "E I DU PONT"
+				},
+				{
+					"id": "EALT3",
+					"descricao": "ACO ALTONA"
+				},
+				{
+					"id": "EALT4",
+					"descricao": "ACO ALTONA"
+				},
+				{
+					"id": "EBAY34",
+					"descricao": "EBAY"
+				},
+				{
+					"id": "ECOR3",
+					"descricao": "ECORODOVIAS"
+				},
+				{
+					"id": "ECPR3",
+					"descricao": "ENCORPAR"
+				},
+				{
+					"id": "ECPR4",
+					"descricao": "ENCORPAR"
+				},
+				{
+					"id": "EEEL3",
+					"descricao": "CEEE GT"
+				},
+				{
+					"id": "EEEL4",
+					"descricao": "CEEE GT"
+				},
+				{
+					"id": "EGIE3",
+					"descricao": "ENGIE BRASIL"
+				},
+				{
+					"id": "EKTR3",
+					"descricao": "ELEKTRO"
+				},
+				{
+					"id": "EKTR4",
+					"descricao": "ELEKTRO"
+				},
+				{
+					"id": "ELEK3",
+					"descricao": "ELEKEIROZ"
+				},
+				{
+					"id": "ELEK4",
+					"descricao": "ELEKEIROZ"
+				},
+				{
+					"id": "ELET3",
+					"descricao": "ELETROBRAS"
+				},
+				{
+					"id": "ELET5",
+					"descricao": "ELETROBRAS"
+				},
+				{
+					"id": "ELET6",
+					"descricao": "ELETROBRAS"
+				},
+				{
+					"id": "ELPL3",
+					"descricao": "ELETROPAULO"
+				},
+				{
+					"id": "ELPL4",
+					"descricao": "ELETROPAULO"
+				},
+				{
+					"id": "EMAE4",
+					"descricao": "EMAE"
+				},
+				{
+					"id": "EMBR3",
+					"descricao": "EMBRAER"
+				},
+				{
+					"id": "ENBR3",
+					"descricao": "ENERGIAS BR"
+				},
+				{
+					"id": "ENEV3",
+					"descricao": "ENEVA"
+				},
+				{
+					"id": "ENGI11",
+					"descricao": "ENERGISA"
+				},
+				{
+					"id": "ENGI3",
+					"descricao": "ENERGISA"
+				},
+				{
+					"id": "ENGI4",
+					"descricao": "ENERGISA"
+				},
+				{
+					"id": "ENMT3",
+					"descricao": "ENERGISA MT"
+				},
+				{
+					"id": "ENMT4",
+					"descricao": "ENERGISA MT"
+				},
+				{
+					"id": "EQTL3",
+					"descricao": "EQUATORIAL"
+				},
+				{
+					"id": "ESRX34",
+					"descricao": "EXPRESCRIPTS"
+				},
+				{
+					"id": "ESTC3",
+					"descricao": "ESTACIO PART"
+				},
+				{
+					"id": "ESTR3",
+					"descricao": "ESTRELA"
+				},
+				{
+					"id": "ESTR4",
+					"descricao": "ESTRELA"
+				},
+				{
+					"id": "ETER3",
+					"descricao": "ETERNIT"
+				},
+				{
+					"id": "EUCA3",
+					"descricao": "EUCATEX"
+				},
+				{
+					"id": "EUCA4",
+					"descricao": "EUCATEX"
+				},
+				{
+					"id": "EVEN3",
+					"descricao": "EVEN"
+				},
+				{
+					"id": "EXXO34",
+					"descricao": "EXXON MOBIL"
+				},
+				{
+					"id": "EZTC3",
+					"descricao": "EZTEC"
+				},
+				{
+					"id": "FBMC4",
+					"descricao": "FIBAM"
+				},
+				{
+					"id": "FBOK34",
+					"descricao": "FACEBOOK"
+				},
+				{
+					"id": "FCXO34",
+					"descricao": "FREEPORT"
+				},
+				{
+					"id": "FDMO34",
+					"descricao": "FORD MOTORS"
+				},
+				{
+					"id": "FDXB34",
+					"descricao": "FEDEX CORP"
+				},
+				{
+					"id": "FESA3",
+					"descricao": "FERBASA"
+				},
+				{
+					"id": "FESA4",
+					"descricao": "FERBASA"
+				},
+				{
+					"id": "FHER3",
+					"descricao": "FER HERINGER"
+				},
+				{
+					"id": "FIBR3",
+					"descricao": "FIBRIA"
+				},
+				{
+					"id": "FIGE3",
+					"descricao": "INVEST BEMGE"
+				},
+				{
+					"id": "FIGE4",
+					"descricao": "INVEST BEMGE"
+				},
+				{
+					"id": "FJTA3",
+					"descricao": "FORJA TAURUS"
+				},
+				{
+					"id": "FJTA4",
+					"descricao": "FORJA TAURUS"
+				},
+				{
+					"id": "FLRY3",
+					"descricao": "FLEURY"
+				},
+				{
+					"id": "FMXB34",
+					"descricao": "FEMSA"
+				},
+				{
+					"id": "FRAS3",
+					"descricao": "FRAS LE"
+				},
+				{
+					"id": "FRIO3",
+					"descricao": "METALFRIO"
+				},
+				{
+					"id": "FRTA3",
+					"descricao": "POMIFRUTAS"
+				},
+				{
+					"id": "FSLR34",
+					"descricao": "FIRST SOLAR"
+				},
+				{
+					"id": "GBIO33",
+					"descricao": "BIOTOSCANA"
+				},
+				{
+					"id": "GDBR34",
+					"descricao": "GEN DYNAMICS"
+				},
+				{
+					"id": "GEOO34",
+					"descricao": "GE"
+				},
+				{
+					"id": "GEPA3",
+					"descricao": "GER PARANAP"
+				},
+				{
+					"id": "GEPA4",
+					"descricao": "GER PARANAP"
+				},
+				{
+					"id": "GFSA3",
+					"descricao": "GAFISA"
+				},
+				{
+					"id": "GGBR3",
+					"descricao": "GERDAU"
+				},
+				{
+					"id": "GGBR4",
+					"descricao": "GERDAU"
+				},
+				{
+					"id": "GILD34",
+					"descricao": "GILEAD"
+				},
+				{
+					"id": "GMCO34",
+					"descricao": "GENERAL MOT"
+				},
+				{
+					"id": "GOAU3",
+					"descricao": "GERDAU MET"
+				},
+				{
+					"id": "GOAU4",
+					"descricao": "GERDAU MET"
+				},
+				{
+					"id": "GOGL34",
+					"descricao": "ALPHABET"
+				},
+				{
+					"id": "GOGL35",
+					"descricao": "ALPHABET"
+				},
+				{
+					"id": "GOLL4",
+					"descricao": "GOL"
+				},
+				{
+					"id": "GPAR3",
+					"descricao": "CELGPAR"
+				},
+				{
+					"id": "GPIV33",
+					"descricao": "GP INVEST"
+				},
+				{
+					"id": "GPRO34",
+					"descricao": "GOPRO"
+				},
+				{
+					"id": "GPSI34",
+					"descricao": "GAP"
+				},
+				{
+					"id": "GRND3",
+					"descricao": "GRENDENE"
+				},
+				{
+					"id": "GRUC3",
+					"descricao": "GRUCAI"
+				},
+				{
+					"id": "GRUC6",
+					"descricao": "GRUCAI"
+				},
+				{
+					"id": "GSGI34",
+					"descricao": "GOLDMANSACHS"
+				},
+				{
+					"id": "GSHP3",
+					"descricao": "GENERALSHOPP"
+				},
+				{
+					"id": "GUAR3",
+					"descricao": "GUARARAPES"
+				},
+				{
+					"id": "GUAR4",
+					"descricao": "GUARARAPES"
+				},
+				{
+					"id": "HAGA3",
+					"descricao": "HAGA S"
+				},
+				{
+					"id": "HAGA4",
+					"descricao": "HAGA S"
+				},
+				{
+					"id": "HALI34",
+					"descricao": "HALLIBURTON"
+				},
+				{
+					"id": "HBOR3",
+					"descricao": "HELBOR"
+				},
+				{
+					"id": "HBTS5",
+					"descricao": "HABITASUL"
+				},
+				{
+					"id": "HETA3",
+					"descricao": "HERCULES"
+				},
+				{
+					"id": "HETA4",
+					"descricao": "HERCULES"
+				},
+				{
+					"id": "HGTX3",
+					"descricao": "CIA HERING "
+				},
+				{
+					"id": "HOME34",
+					"descricao": "HOME DEPOT"
+				},
+				{
+					"id": "HONB34",
+					"descricao": "HONEYWELL"
+				},
+				{
+					"id": "HOOT3",
+					"descricao": "HOTEIS OTHON"
+				},
+				{
+					"id": "HOOT4",
+					"descricao": "HOTEIS OTHON"
+				},
+				{
+					"id": "HPQB34",
+					"descricao": "PACKARD COMPANY"
+				},
+				{
+					"id": "HSHY34",
+					"descricao": "HERSHEY CO"
+				},
+				{
+					"id": "HYPE3",
+					"descricao": "HYPERMARCAS"
+				},
+				{
+					"id": "IBMB34",
+					"descricao": "IBM"
+				},
+				{
+					"id": "IDNT3",
+					"descricao": "IDEIASNET"
+				},
+				{
+					"id": "IDVL3",
+					"descricao": "INDUSVAL"
+				},
+				{
+					"id": "IDVL4",
+					"descricao": "INDUSVAL"
+				},
+				{
+					"id": "IGBR3",
+					"descricao": "IGB S"
+				},
+				{
+					"id": "IGSN3",
+					"descricao": "IGUA SA"
+				},
+				{
+					"id": "IGTA3",
+					"descricao": "IGUATEMI"
+				},
+				{
+					"id": "IPNN3",
+					"descricao": "TESTE IPN V"
+				},
+				{
+					"id": "IRBR3",
+					"descricao": "BRASIL RESSEGUROS S"
+				},
+				{
+					"id": "ITEC3",
+					"descricao": "GRUPO ITAUTEC"
+				},
+				{
+					"id": "ITLC34",
+					"descricao": "INTEL"
+				},
+				{
+					"id": "ITSA3",
+					"descricao": "ITAUSA"
+				},
+				{
+					"id": "ITSA4",
+					"descricao": "ITAUSA"
+				},
+				{
+					"id": "ITUB3",
+					"descricao": "ITAUUNIBANCO"
+				},
+				{
+					"id": "ITUB4",
+					"descricao": "ITAUUNIBANCO"
+				},
+				{
+					"id": "JBDU3",
+					"descricao": "J B DUARTE"
+				},
+				{
+					"id": "JBDU4",
+					"descricao": "J B DUARTE"
+				},
+				{
+					"id": "JBSS3",
+					"descricao": "JBS"
+				},
+				{
+					"id": "JCPC34",
+					"descricao": "JC PENNEY"
+				},
+				{
+					"id": "JFEN3",
+					"descricao": "JOAO FORTES"
+				},
+				{
+					"id": "JHSF3",
+					"descricao": "JHSF PART"
+				},
+				{
+					"id": "JNJB34",
+					"descricao": "JOHNSON"
+				},
+				{
+					"id": "JOPA3",
+					"descricao": "JOAQUIM OLIVEIRA S"
+				},
+				{
+					"id": "JOPA4",
+					"descricao": "JOAQUIM OLIVEIRA S"
+				},
+				{
+					"id": "JPMC34",
+					"descricao": "JPMORGAN"
+				},
+				{
+					"id": "JSLG3",
+					"descricao": "JSL"
+				},
+				{
+					"id": "KEPL3",
+					"descricao": "KEPLER WEBER"
+				},
+				{
+					"id": "KHCB34",
+					"descricao": "KRAFT HEINZ"
+				},
+				{
+					"id": "KLBN11",
+					"descricao": "KLABIN S"
+				},
+				{
+					"id": "KLBN3",
+					"descricao": "KLABIN S"
+				},
+				{
+					"id": "KLBN4",
+					"descricao": "KLABIN S"
+				},
+				{
+					"id": "KMBB34",
+					"descricao": "CLARK CORP"
+				},
+				{
+					"id": "KROT3",
+					"descricao": "KROTON"
+				},
+				{
+					"id": "LAME3",
+					"descricao": "LOJAS AMERIC"
+				},
+				{
+					"id": "LAME4",
+					"descricao": "LOJAS AMERIC"
+				},
+				{
+					"id": "LBRN34",
+					"descricao": "L BRANDS"
+				},
+				{
+					"id": "LCAM3",
+					"descricao": "LOCAMERICA"
+				},
+				{
+					"id": "LEVE3",
+					"descricao": "METAL LEVE S"
+				},
+				{
+					"id": "LHER3",
+					"descricao": "LOJAS HERING"
+				},
+				{
+					"id": "LHER4",
+					"descricao": "LOJAS HERING"
+				},
+				{
+					"id": "LIGT3",
+					"descricao": "LIGHT S"
+				},
+				{
+					"id": "LILY34",
+					"descricao": "LILLY"
+				},
+				{
+					"id": "LINX3",
+					"descricao": "LINX"
+				},
+				{
+					"id": "LIPR3",
+					"descricao": "ELETROPAR"
+				},
+				{
+					"id": "LIXC3",
+					"descricao": "LIX DA CUNHA"
+				},
+				{
+					"id": "LIXC4",
+					"descricao": "LIX DA CUNHA"
+				},
+				{
+					"id": "LLIS3",
+					"descricao": "LE LIS BLANC"
+				},
+				{
+					"id": "LMTB34",
+					"descricao": "LOCKHEED"
+				},
+				{
+					"id": "LOGN3",
+					"descricao": "IN LOGISTICA INTERMODAL S"
+				},
+				{
+					"id": "LPSB3",
+					"descricao": "CONSULTORIA DE IMOVEIS S"
+				},
+				{
+					"id": "LREN3",
+					"descricao": "LOJAS RENNER"
+				},
+				{
+					"id": "LUXM3",
+					"descricao": "TREVISA"
+				},
+				{
+					"id": "LUXM4",
+					"descricao": "TREVISA"
+				},
+				{
+					"id": "MACY34",
+					"descricao": "MACY S"
+				},
+				{
+					"id": "MAGG3",
+					"descricao": "MAGNESITA SA"
+				},
+				{
+					"id": "MAPT3",
+					"descricao": "CEMEPE"
+				},
+				{
+					"id": "MAPT4",
+					"descricao": "CEMEPE"
+				},
+				{
+					"id": "MCDC34",
+					"descricao": "MCDONALDS"
+				},
+				{
+					"id": "MDIA3",
+					"descricao": "M"
+				},
+				{
+					"id": "MDLZ34",
+					"descricao": "MONDELEZ INT"
+				},
+				{
+					"id": "MDTC34",
+					"descricao": "MEDTRONIC"
+				},
+				{
+					"id": "MEAL3",
+					"descricao": "IMC S"
+				},
+				{
+					"id": "MEND3",
+					"descricao": "MENDES JR"
+				},
+				{
+					"id": "MEND5",
+					"descricao": "MENDES JR"
+				},
+				{
+					"id": "MEND6",
+					"descricao": "MENDES JR"
+				},
+				{
+					"id": "MERC3",
+					"descricao": "MERC FINANC"
+				},
+				{
+					"id": "MERC4",
+					"descricao": "MERC FINANC"
+				},
+				{
+					"id": "METB34",
+					"descricao": "METLIFE INC"
+				},
+				{
+					"id": "MGEL3",
+					"descricao": "MANGELS INDL"
+				},
+				{
+					"id": "MGEL4",
+					"descricao": "MANGELS INDL"
+				},
+				{
+					"id": "MGLU3",
+					"descricao": "MAGAZ LUIZA"
+				},
+				{
+					"id": "MILS3",
+					"descricao": "MILLS"
+				},
+				{
+					"id": "MLFT3",
+					"descricao": "JEREISSATI"
+				},
+				{
+					"id": "MLFT4",
+					"descricao": "JEREISSATI"
+				},
+				{
+					"id": "MMAQ3",
+					"descricao": "MINASMAQUINA"
+				},
+				{
+					"id": "MMAQ4",
+					"descricao": "MINASMAQUINA"
+				},
+				{
+					"id": "MNDL3",
+					"descricao": "PRODUTOS DE CONSUMO"
+				},
+				{
+					"id": "MNPR3",
+					"descricao": "MINUPAR"
+				},
+				{
+					"id": "MOAR3",
+					"descricao": "MONT ARANHA"
+				},
+				{
+					"id": "MOSC34",
+					"descricao": "MOSAIC CO"
+				},
+				{
+					"id": "MOVI3",
+					"descricao": "MOVIDA"
+				},
+				{
+					"id": "MPLU3",
+					"descricao": "MULTIPLUS"
+				},
+				{
+					"id": "MRCK34",
+					"descricao": "MERCK"
+				},
+				{
+					"id": "MRFG3",
+					"descricao": "MARFRIG"
+				},
+				{
+					"id": "MRVE3",
+					"descricao": "MRV"
+				},
+				{
+					"id": "MSBR34",
+					"descricao": "MORGAN STAN"
+				},
+				{
+					"id": "MSCD34",
+					"descricao": "MASTERCARD"
+				},
+				{
+					"id": "MSFT34",
+					"descricao": "MICROSOFT"
+				},
+				{
+					"id": "MSPA3",
+					"descricao": "MELHOR SP"
+				},
+				{
+					"id": "MSPA4",
+					"descricao": "MELHOR SP"
+				},
+				{
+					"id": "MSRO3",
+					"descricao": "MAESTROLOC"
+				},
+				{
+					"id": "MTIG3",
+					"descricao": "METAL IGUACU"
+				},
+				{
+					"id": "MTIG4",
+					"descricao": "METAL IGUACU"
+				},
+				{
+					"id": "MTSA3",
+					"descricao": "METISA"
+				},
+				{
+					"id": "MTSA4",
+					"descricao": "METISA"
+				},
+				{
+					"id": "MULT3",
+					"descricao": "EMPREEND IMOBILIARIOS S"
+				},
+				{
+					"id": "MYPK3",
+					"descricao": "IOCHP"
+				},
+				{
+					"id": "NAFG3",
+					"descricao": "NADIR FIGUEI"
+				},
+				{
+					"id": "NAFG4",
+					"descricao": "NADIR FIGUEI"
+				},
+				{
+					"id": "NATU3",
+					"descricao": "NATURA"
+				},
+				{
+					"id": "NEMO3",
+					"descricao": "SUZANO HOLD"
+				},
+				{
+					"id": "NEMO5",
+					"descricao": "SUZANO HOLD"
+				},
+				{
+					"id": "NEMO6",
+					"descricao": "SUZANO HOLD"
+				},
+				{
+					"id": "NFLX34",
+					"descricao": "NETFLIX"
+				},
+				{
+					"id": "NIKE34",
+					"descricao": "NIKE"
+				},
+				{
+					"id": "NORD3",
+					"descricao": "NORDON MET"
+				},
+				{
+					"id": "NRTQ3",
+					"descricao": "NORTCQUIMICA"
+				},
+				{
+					"id": "ODER4",
+					"descricao": "ODERICH"
+				},
+				{
+					"id": "ODPV3",
+					"descricao": "ODONTOPREV"
+				},
+				{
+					"id": "OFSA3",
+					"descricao": "OUROFINO S"
+				},
+				{
+					"id": "OMGE3",
+					"descricao": "OMEGA GER"
+				},
+				{
+					"id": "ORCL34",
+					"descricao": "ORACLE"
+				},
+				{
+					"id": "PACF3",
+					"descricao": "PACIFIC RDSL"
+				},
+				{
+					"id": "PARD3",
+					"descricao": "IHPARDINI"
+				},
+				{
+					"id": "PATI3",
+					"descricao": "PANATLANTICA"
+				},
+				{
+					"id": "PATI4",
+					"descricao": "PANATLANTICA"
+				},
+				{
+					"id": "PCAR3",
+					"descricao": "P"
+				},
+				{
+					"id": "PCAR4",
+					"descricao": "P"
+				},
+				{
+					"id": "PEAB3",
+					"descricao": "PAR AL BAHIA"
+				},
+				{
+					"id": "PEAB4",
+					"descricao": "PAR AL BAHIA"
+				},
+				{
+					"id": "PEPB34",
+					"descricao": "PEPSICO INC"
+				},
+				{
+					"id": "PETR3",
+					"descricao": "PETROBRAS"
+				},
+				{
+					"id": "PETR4",
+					"descricao": "PETROBRAS"
+				},
+				{
+					"id": "PFIZ34",
+					"descricao": "PFIZER"
+				},
+				{
+					"id": "PFRM3",
+					"descricao": "PROFARMA"
+				},
+				{
+					"id": "PGCO34",
+					"descricao": "PG"
+				},
+				{
+					"id": "PINE4",
+					"descricao": "PINE"
+				},
+				{
+					"id": "PLAS3",
+					"descricao": "PLASCAR PART"
+				},
+				{
+					"id": "PMAM3",
+					"descricao": "PARANAPANEMA"
+				},
+				{
+					"id": "PNVL3",
+					"descricao": "DIMED"
+				},
+				{
+					"id": "PNVL4",
+					"descricao": "DIMED"
+				},
+				{
+					"id": "POMO3",
+					"descricao": "MARCOPOLO"
+				},
+				{
+					"id": "POMO4",
+					"descricao": "MARCOPOLO"
+				},
+				{
+					"id": "POSI3",
+					"descricao": "POSITIVO TEC"
+				},
+				{
+					"id": "PPAR3",
+					"descricao": "POLPAR"
+				},
+				{
+					"id": "PPLA11",
+					"descricao": "PPLA"
+				},
+				{
+					"id": "PPLA35",
+					"descricao": "PPLA"
+				},
+				{
+					"id": "PPLA36",
+					"descricao": "PPLA"
+				},
+				{
+					"id": "PRBC4",
+					"descricao": "PARANA"
+				},
+				{
+					"id": "PRCA11",
+					"descricao": "PRATICA"
+				},
+				{
+					"id": "PRCA12",
+					"descricao": "PRATICA"
+				},
+				{
+					"id": "PRCA3",
+					"descricao": "PRATICA"
+				},
+				{
+					"id": "PRIO3",
+					"descricao": "PETRORIO"
+				},
+				{
+					"id": "PRML3",
+					"descricao": "PRUMO"
+				},
+				{
+					"id": "PSEG3",
+					"descricao": "SAUIPE"
+				},
+				{
+					"id": "PSEG4",
+					"descricao": "SAUIPE"
+				},
+				{
+					"id": "PSSA3",
+					"descricao": "PORTO SEGURO"
+				},
+				{
+					"id": "PTBL3",
+					"descricao": "PORTOBELLO"
+				},
+				{
+					"id": "PTNT3",
+					"descricao": "PETTENATI"
+				},
+				{
+					"id": "PTNT4",
+					"descricao": "PETTENATI"
+				},
+				{
+					"id": "QCOM34",
+					"descricao": "QUALCOMM"
+				},
+				{
+					"id": "QGEP3",
+					"descricao": "QGEP PART"
+				},
+				{
+					"id": "QUAL3",
+					"descricao": "QUALICORP"
+				},
+				{
+					"id": "QUSW3",
+					"descricao": "QUALITY SOFT"
+				},
+				{
+					"id": "RADL3",
+					"descricao": "RAIADROGASIL"
+				},
+				{
+					"id": "RAIL3",
+					"descricao": "RUMO S"
+				},
+				{
+					"id": "RANI3",
+					"descricao": "CELUL IRANI"
+				},
+				{
+					"id": "RANI4",
+					"descricao": "CELUL IRANI"
+				},
+				{
+					"id": "RAPT3",
+					"descricao": "RANDON PART"
+				},
+				{
+					"id": "RAPT4",
+					"descricao": "RANDON PART"
+				},
+				{
+					"id": "RCSL3",
+					"descricao": "RECRUSUL"
+				},
+				{
+					"id": "RCSL4",
+					"descricao": "RECRUSUL"
+				},
+				{
+					"id": "RDNI3",
+					"descricao": "RODOBENSIMOB"
+				},
+				{
+					"id": "REDE3",
+					"descricao": "REDE ENERGIA"
+				},
+				{
+					"id": "RENT3",
+					"descricao": "LOCALIZA"
+				},
+				{
+					"id": "RIGG34",
+					"descricao": "TRANSOCEAN"
+				},
+				{
+					"id": "RLOG3",
+					"descricao": "COSAN LOG"
+				},
+				{
+					"id": "RNEW11",
+					"descricao": "RENOVA"
+				},
+				{
+					"id": "RNEW3",
+					"descricao": "RENOVA"
+				},
+				{
+					"id": "RNEW4",
+					"descricao": "RENOVA"
+				},
+				{
+					"id": "ROMI3",
+					"descricao": "INDS ROMI"
+				},
+				{
+					"id": "ROST34",
+					"descricao": "ROSS STORES"
+				},
+				{
+					"id": "RPAD3",
+					"descricao": "ALFA HOLDING"
+				},
+				{
+					"id": "RPAD5",
+					"descricao": "ALFA HOLDING"
+				},
+				{
+					"id": "RPAD6",
+					"descricao": "ALFA HOLDING"
+				},
+				{
+					"id": "RSID3",
+					"descricao": "ROSSI RESID"
+				},
+				{
+					"id": "RSUL3",
+					"descricao": "RIOSULENSE"
+				},
+				{
+					"id": "RSUL4",
+					"descricao": "RIOSULENSE"
+				},
+				{
+					"id": "SANB11",
+					"descricao": "SANTANDER BR"
+				},
+				{
+					"id": "SANB3",
+					"descricao": "SANTANDER BR"
+				},
+				{
+					"id": "SANB4",
+					"descricao": "SANTANDER BR"
+				},
+				{
+					"id": "SANC34",
+					"descricao": "SANCHEZ ENER"
+				},
+				{
+					"id": "SAPR3",
+					"descricao": "SANEPAR"
+				},
+				{
+					"id": "SAPR4",
+					"descricao": "SANEPAR"
+				},
+				{
+					"id": "SBSP3",
+					"descricao": "SABESP"
+				},
+				{
+					"id": "SBUB34",
+					"descricao": "STARBUCKS"
+				},
+				{
+					"id": "SCAR3",
+					"descricao": "SAO CARLOS"
+				},
+				{
+					"id": "SCHW34",
+					"descricao": "SCHWAB"
+				},
+				{
+					"id": "SEDU3",
+					"descricao": "SOMOS EDUCA"
+				},
+				{
+					"id": "SEER3",
+					"descricao": "SER EDUCA"
+				},
+				{
+					"id": "SGPS3",
+					"descricao": "SPRINGS"
+				},
+				{
+					"id": "SHOW3",
+					"descricao": "TIME FOR FUN"
+				},
+				{
+					"id": "SHUL3",
+					"descricao": "SCHULZ"
+				},
+				{
+					"id": "SHUL4",
+					"descricao": "SCHULZ"
+				},
+				{
+					"id": "SLBG34",
+					"descricao": "SCHLUMBERGER"
+				},
+				{
+					"id": "SLCE3",
+					"descricao": "SLC AGRICOLA"
+				},
+				{
+					"id": "SLED3",
+					"descricao": "SARAIVA LIVR"
+				},
+				{
+					"id": "SLED4",
+					"descricao": "SARAIVA LIVR"
+				},
+				{
+					"id": "SMLE3",
+					"descricao": "SMILES"
+				},
+				{
+					"id": "SMTO3",
+					"descricao": "SAO MARTINHO"
+				},
+				{
+					"id": "SNSL3",
+					"descricao": "SENIOR SOL"
+				},
+				{
+					"id": "SOND3",
+					"descricao": "SONDOTECNICA"
+				},
+				{
+					"id": "SOND5",
+					"descricao": "SONDOTECNICA"
+				},
+				{
+					"id": "SOND6",
+					"descricao": "SONDOTECNICA"
+				},
+				{
+					"id": "SPRI3",
+					"descricao": "SPRINGER"
+				},
+				{
+					"id": "SPRI5",
+					"descricao": "SPRINGER"
+				},
+				{
+					"id": "SPRI6",
+					"descricao": "SPRINGER"
+				},
+				{
+					"id": "SPRN34",
+					"descricao": "SPRINT"
+				},
+				{
+					"id": "SSBR3",
+					"descricao": "SIERRABRASIL"
+				},
+				{
+					"id": "SSFO34",
+					"descricao": "SALESFORCE"
+				},
+				{
+					"id": "STBP3",
+					"descricao": "SANTOS BRP"
+				},
+				{
+					"id": "STKF3",
+					"descricao": "STATKRAFT"
+				},
+				{
+					"id": "STTR3",
+					"descricao": "IND"
+				},
+				{
+					"id": "SULA11",
+					"descricao": "SUL AMERICA"
+				},
+				{
+					"id": "SULA3",
+					"descricao": "SUL AMERICA"
+				},
+				{
+					"id": "SULA4",
+					"descricao": "SUL AMERICA"
+				},
+				{
+					"id": "SUZB5",
+					"descricao": "SUZANO PAPEL"
+				},
+				{
+					"id": "SUZB6",
+					"descricao": "SUZANO PAPEL"
+				},
+				{
+					"id": "TAEE11",
+					"descricao": "TAESA"
+				},
+				{
+					"id": "TAEE3",
+					"descricao": "TAESA"
+				},
+				{
+					"id": "TAEE4",
+					"descricao": "TAESA"
+				},
+				{
+					"id": "TCSA3",
+					"descricao": "TECNISA"
+				},
+				{
+					"id": "TECN3",
+					"descricao": "TECHNOS"
+				},
+				{
+					"id": "TELB3",
+					"descricao": "TELEBRAS"
+				},
+				{
+					"id": "TELB4",
+					"descricao": "TELEBRAS"
+				},
+				{
+					"id": "TEND3",
+					"descricao": "TENDA"
+				},
+				{
+					"id": "TESA3",
+					"descricao": "TERRA SANTA"
+				},
+				{
+					"id": "TEXA34",
+					"descricao": "TEXAS INC"
+				},
+				{
+					"id": "TGMA3",
+					"descricao": "TEGMA"
+				},
+				{
+					"id": "TGTB34",
+					"descricao": "TARGET CORP"
+				},
+				{
+					"id": "TIET11",
+					"descricao": "AES TIETE E"
+				},
+				{
+					"id": "TIET3",
+					"descricao": "AES TIETE E"
+				},
+				{
+					"id": "TIET4",
+					"descricao": "AES TIETE E"
+				},
+				{
+					"id": "TIFF34",
+					"descricao": "TIFFANY"
+				},
+				{
+					"id": "TIMP3",
+					"descricao": "TIM PART S"
+				},
+				{
+					"id": "TKNO3",
+					"descricao": "INDUSTRIA E COMERCIO"
+				},
+				{
+					"id": "TKNO4",
+					"descricao": "INDUSTRIA E COMERCIO"
+				},
+				{
+					"id": "TMOS34",
+					"descricao": "THERMFISCHER"
+				},
+				{
+					"id": "TOTS3",
+					"descricao": "TOTVS"
+				},
+				{
+					"id": "TOYB3",
+					"descricao": "TECTOY"
+				},
+				{
+					"id": "TOYB4",
+					"descricao": "TECTOY"
+				},
+				{
+					"id": "TRIS3",
+					"descricao": "TRISUL"
+				},
+				{
+					"id": "TRPL3",
+					"descricao": "TRAN PAULIST"
+				},
+				{
+					"id": "TRPL4",
+					"descricao": "TRAN PAULIST"
+				},
+				{
+					"id": "TRPN3",
+					"descricao": "TARPON INV"
+				},
+				{
+					"id": "TRVC34",
+					"descricao": "TRAVELERS"
+				},
+				{
+					"id": "TSLA34",
+					"descricao": "TESLA INC"
+				},
+				{
+					"id": "TUPY3",
+					"descricao": "TUPY"
+				},
+				{
+					"id": "TWTR34",
+					"descricao": "TWITTER"
+				},
+				{
+					"id": "TWXB34",
+					"descricao": "TIME WARNER"
+				},
+				{
+					"id": "TXRX3",
+					"descricao": "TEX RENAUX"
+				},
+				{
+					"id": "TXRX4",
+					"descricao": "TEX RENAUX"
+				},
+				{
+					"id": "UBSG34",
+					"descricao": "UBS GROUP"
+				},
+				{
+					"id": "UCAS3",
+					"descricao": "UNICASA"
+				},
+				{
+					"id": "UGPA3",
+					"descricao": "ULTRAPAR"
+				},
+				{
+					"id": "UNIP3",
+					"descricao": "UNIPAR"
+				},
+				{
+					"id": "UNIP5",
+					"descricao": "UNIPAR"
+				},
+				{
+					"id": "UNIP6",
+					"descricao": "UNIPAR"
+				},
+				{
+					"id": "UPAC34",
+					"descricao": "UNIONPACIFIC"
+				},
+				{
+					"id": "UPSS34",
+					"descricao": "UPS"
+				},
+				{
+					"id": "USBC34",
+					"descricao": "US BANCORP"
+				},
+				{
+					"id": "USIM3",
+					"descricao": "USIMINAS"
+				},
+				{
+					"id": "USIM5",
+					"descricao": "USIMINAS"
+				},
+				{
+					"id": "USIM6",
+					"descricao": "USIMINAS"
+				},
+				{
+					"id": "USSX34",
+					"descricao": "US STEEL"
+				},
+				{
+					"id": "UTEC34",
+					"descricao": "UNITED TECH"
+				},
+				{
+					"id": "VALE3",
+					"descricao": "VALE"
+				},
+				{
+					"id": "VALE5",
+					"descricao": "VALE"
+				},
+				{
+					"id": "VERZ34",
+					"descricao": "VERIZON"
+				},
+				{
+					"id": "VISA34",
+					"descricao": "VISA INC"
+				},
+				{
+					"id": "VIVT3",
+					"descricao": "TELEF BRASIL"
+				},
+				{
+					"id": "VIVT4",
+					"descricao": "TELEF BRASIL"
+				},
+				{
+					"id": "VLID3",
+					"descricao": "VALID"
+				},
+				{
+					"id": "VLOE34",
+					"descricao": "VALERO ENER"
+				},
+				{
+					"id": "VSPT3",
+					"descricao": "FER C ATLANT"
+				},
+				{
+					"id": "VULC3",
+					"descricao": "VULCABRAS"
+				},
+				{
+					"id": "VVAR11",
+					"descricao": "VIAVAREJO"
+				},
+				{
+					"id": "VVAR3",
+					"descricao": "VIAVAREJO"
+				},
+				{
+					"id": "VVAR4",
+					"descricao": "VIAVAREJO"
+				},
+				{
+					"id": "WALM34",
+					"descricao": "WAL MART"
+				},
+				{
+					"id": "WEGE3",
+					"descricao": "WEG"
+				},
+				{
+					"id": "WFCO34",
+					"descricao": "WELLS FARGO"
+				},
+				{
+					"id": "WHRL3",
+					"descricao": "WHIRLPOOL"
+				},
+				{
+					"id": "WHRL4",
+					"descricao": "WHIRLPOOL"
+				},
+				{
+					"id": "WIZS3",
+					"descricao": "WIZ S"
+				},
+				{
+					"id": "WLMM3",
+					"descricao": "INDUSTRIA E COMERCIO S"
+				},
+				{
+					"id": "WLMM4",
+					"descricao": "INDUSTRIA E COMERCIO S"
+				},
+				{
+					"id": "WSON33",
+					"descricao": "WILSON SONS"
+				},
+				{
+					"id": "WUNI34",
+					"descricao": "WESTERNUNION"
+				},
+				{
+					"id": "XRXB34",
+					"descricao": "XEROX CORP"
+				}
+			]
+		},
+		{
+			"fiis": [{
+				"id": "PRSV11",
+				"descricao": "Presidente Vargas"
+			}]
+		},
+		{
+			"etfs": [{}]
+		},
+		{
+			"bdrs": [{}]
+		}
+	]
+}
